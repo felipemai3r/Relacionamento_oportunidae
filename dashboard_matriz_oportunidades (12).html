@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matriz de Oportunidades · Effecti</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+:root{--primitive-midnight-0: #FFFFFF;--primitive-midnight-50: #F8F8F9;--primitive-midnight-100: #EDEEF0;--primitive-midnight-200: #DCDCE1;--primitive-midnight-300: #BFC0C8;--primitive-midnight-400: #9B9DA9;--primitive-midnight-500: #737686;--primitive-midnight-600: #505468;--primitive-midnight-700: #33384E;--primitive-midnight-800: #1B2339;--primitive-midnight-900: #081128;--primitive-blizzard-50: #EAF9FD;--primitive-blizzard-100: #D1F4FD;--primitive-blizzard-200: #A7EAFB;--primitive-blizzard-300: #4FD1EC;--primitive-blizzard-400: #00B2D7;--primitive-blizzard-500: #0092BE;--primitive-blizzard-600: #007198;--primitive-blizzard-700: #005677;--primitive-blizzard-800: #003C55;--primitive-blizzard-900: #002738;--primitive-gulf-50: #F7F6FB;--primitive-gulf-100: #E9E7F2;--primitive-gulf-200: #D5D2E7;--primitive-gulf-300: #B7B2D4;--primitive-gulf-400: #918BB9;--primitive-gulf-500: #6B679E;--primitive-gulf-600: #494783;--primitive-gulf-700: #2B2E6B;--primitive-gulf-800: #121D59;--primitive-gulf-900: #051244;--primitive-merino-50: #FEFCF7;--primitive-merino-100: #F1EDE1;--primitive-merino-200: #DCD4BA;--primitive-merino-300: #C0B691;--primitive-merino-400: #A4996C;--primitive-merino-500: #877C4C;--primitive-merino-600: #6A6135;--primitive-merino-700: #4E4721;--primitive-merino-800: #363112;--primitive-merino-900: #242007;--primitive-red-50: #FFF3F1;--primitive-red-100: #FFE2DE;--primitive-red-200: #FFC6BF;--primitive-red-300: #FF9D94;--primitive-red-400: #FB6965;--primitive-red-500: #D2082D;--primitive-red-600: #AC001B;--primitive-red-700: #87000F;--primitive-red-800: #640003;--primitive-red-900: #430000;--primitive-orange-50: #FFF4EC;--primitive-orange-100: #FFE5D5;--primitive-orange-200: #FFCBAE;--primitive-orange-300: #FCA779;--primitive-orange-400: #ED8143;--primitive-orange-500: #E56307;--primitive-orange-600: #BB4900;--primitive-orange-700: #923400;--primitive-orange-800: #692200;--primitive-orange-900: #441500;--primitive-green-50: #F2F9ED;--primitive-green-100: #E0F0D7;--primitive-green-200: #C2E0B1;--primitive-green-300: #97C97E;--primitive-green-400: #66AF47;--primitive-green-500: #349E06;--primitive-green-600: #137C00;--primitive-green-700: #005E00;--primitive-green-800: #004200;--primitive-green-900: #092800;--primitive-pink-50: #FFF3FA;--primitive-pink-100: #FFE3F4;--primitive-pink-200: #FBC9E6;--primitive-pink-300: #F5A1D5;--primitive-pink-400: #EA6ABE;--primitive-pink-500: #C40795;--primitive-pink-600: #A10078;--primitive-pink-700: #7E005C;--primitive-pink-800: #5D0043;--primitive-pink-900: #3D002C;--primitive-yellow-50: #FDF9EF;--primitive-yellow-100: #F9F0D8;--primitive-yellow-200: #F6E4AF;--primitive-yellow-300: #F2D97C;--primitive-yellow-400: #ECCE24;--primitive-yellow-500: #B09707;--primitive-yellow-600: #8C7900;--primitive-yellow-700: #6F6000;--primitive-yellow-800: #544800;--primitive-yellow-900: #3F3607;--color-surface-base: var(--primitive-midnight-0);--color-surface-subtle: var(--primitive-midnight-50);--color-surface-raised: var(--primitive-midnight-100);--color-surface-overlay: var(--primitive-midnight-200);--color-surface-inverted: var(--primitive-midnight-900);--color-surface-warm: var(--primitive-merino-50);--color-content-primary: var(--primitive-midnight-900);--color-content-secondary: var(--primitive-midnight-600);--color-content-tertiary: var(--primitive-midnight-500);--color-content-disabled: var(--primitive-midnight-300);--color-content-inverted: var(--primitive-midnight-0);--color-content-accent: var(--primitive-blizzard-500);--color-border-default: var(--primitive-midnight-200);--color-border-strong: var(--primitive-midnight-300);--color-border-accent: var(--primitive-blizzard-500);--color-border-error: var(--primitive-red-500);--color-action-primary: var(--primitive-blizzard-500);--color-action-hover: var(--primitive-blizzard-600);--color-action-pressed: var(--primitive-blizzard-700);--color-action-subtle: var(--primitive-blizzard-200);--color-action-surface: var(--primitive-blizzard-100);--color-action-disabled: var(--primitive-midnight-200);--color-feedback-error: var(--primitive-red-500);--color-feedback-error-hover: var(--primitive-red-600);--color-feedback-error-surface: var(--primitive-red-100);--color-feedback-error-border: var(--primitive-red-500);--color-feedback-error-content: var(--primitive-red-700);--color-feedback-success: var(--primitive-green-500);--color-feedback-success-surface: var(--primitive-green-100);--color-feedback-success-border: var(--primitive-green-500);--color-feedback-success-content: var(--primitive-green-700);--color-feedback-warning: var(--primitive-yellow-500);--color-feedback-warning-surface: var(--primitive-yellow-100);--color-feedback-warning-border: var(--primitive-yellow-500);--color-feedback-warning-content: var(--primitive-yellow-700);--color-feedback-premium: var(--primitive-orange-500);--color-feedback-premium-surface: var(--primitive-orange-100);--color-feedback-premium-border: var(--primitive-orange-500);--color-feedback-premium-content: var(--primitive-orange-700);--color-feedback-badge: var(--primitive-pink-500);--color-feedback-badge-surface: var(--primitive-pink-100);--color-feedback-badge-border: var(--primitive-pink-500);--color-feedback-badge-content: var(--primitive-pink-700);--color-state-hover-neutral: var(--primitive-midnight-100);--color-state-hover-accent: var(--primitive-blizzard-100);--color-state-hover-error: var(--primitive-red-50);--color-state-pressed-accent: var(--primitive-blizzard-700);--color-state-focus-ring: var(--primitive-blizzard-200);--color-state-focus-ring-error: var(--primitive-pink-200);--color-state-disabled-surface: var(--primitive-midnight-50);--color-state-disabled-content: var(--primitive-midnight-300);--color-brand-midnight: var(--primitive-midnight-900);--color-brand-blizzard: var(--primitive-blizzard-200);--color-brand-gulf: var(--primitive-gulf-800);--color-brand-merino: var(--primitive-merino-100)}.dark,[data-theme=dark]{--color-surface-base: var(--primitive-midnight-900);--color-surface-subtle: var(--primitive-midnight-800);--color-surface-raised: var(--primitive-midnight-700);--color-surface-overlay: var(--primitive-midnight-600);--color-surface-inverted: var(--primitive-midnight-0);--color-surface-warm: var(--primitive-midnight-800);--color-content-primary: var(--primitive-midnight-50);--color-content-secondary: var(--primitive-midnight-200);--color-content-tertiary: var(--primitive-midnight-300);--color-content-disabled: var(--primitive-midnight-600);--color-content-inverted: var(--primitive-midnight-900);--color-content-accent: var(--primitive-blizzard-400);--color-border-default: var(--primitive-midnight-700);--color-border-strong: var(--primitive-midnight-600);--color-border-accent: var(--primitive-blizzard-400);--color-border-error: var(--primitive-red-400);--color-action-primary: var(--primitive-blizzard-400);--color-action-hover: var(--primitive-blizzard-300);--color-action-pressed: var(--primitive-blizzard-500);--color-action-subtle: var(--primitive-blizzard-800);--color-action-surface: var(--primitive-blizzard-900);--color-action-disabled: var(--primitive-midnight-700);--color-feedback-error: var(--primitive-red-400);--color-feedback-error-surface: var(--primitive-red-900);--color-feedback-error-content: var(--primitive-red-200);--color-feedback-success: var(--primitive-green-400);--color-feedback-success-surface: var(--primitive-green-900);--color-feedback-success-content: var(--primitive-green-200);--color-feedback-warning: var(--primitive-yellow-400);--color-feedback-warning-surface: var(--primitive-yellow-900);--color-feedback-warning-content: var(--primitive-yellow-200);--color-feedback-premium: var(--primitive-orange-400);--color-feedback-premium-surface: var(--primitive-orange-900);--color-feedback-premium-content: var(--primitive-orange-200);--color-feedback-badge: var(--primitive-pink-400);--color-feedback-badge-surface: var(--primitive-pink-900);--color-feedback-badge-content: var(--primitive-pink-200);--color-state-hover-neutral: var(--primitive-midnight-800);--color-state-hover-accent: var(--primitive-blizzard-900);--color-state-focus-ring: var(--primitive-blizzard-400);--color-state-disabled-surface: var(--primitive-midnight-800);--color-state-disabled-content: var(--primitive-midnight-600)}:root{--font-family-base: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;--font-weight-regular: 400;--font-weight-medium: 500;--font-weight-semibold: 600;--font-weight-bold: 700;--type-display-2xl-size: 56px;--type-display-2xl-weight: 700;--type-display-2xl-line-height: 1;--type-display-2xl-tracking: -.03em;--type-display-xl-size: 48px;--type-display-xl-weight: 700;--type-display-xl-line-height: 1;--type-display-xl-tracking: -.025em;--type-display-lg-size: 40px;--type-display-lg-weight: 700;--type-display-lg-line-height: 1.05;--type-display-lg-tracking: -.02em;--type-display-md-size: 32px;--type-display-md-weight: 700;--type-display-md-line-height: 1.1;--type-display-md-tracking: -.015em;--type-heading-xl-size: 28px;--type-heading-xl-weight: 700;--type-heading-xl-line-height: 1.15;--type-heading-xl-tracking: -.01em;--type-heading-lg-size: 24px;--type-heading-lg-weight: 700;--type-heading-lg-line-height: 1.2;--type-heading-lg-tracking: -.008em;--type-heading-md-size: 20px;--type-heading-md-weight: 600;--type-heading-md-line-height: 1.25;--type-heading-md-tracking: -.005em;--type-heading-sm-size: 18px;--type-heading-sm-weight: 600;--type-heading-sm-line-height: 1.3;--type-heading-sm-tracking: -.003em;--type-body-lg-size: 18px;--type-body-lg-weight: 400;--type-body-lg-line-height: 1.6;--type-body-lg-tracking: 0;--type-body-md-size: 16px;--type-body-md-weight: 400;--type-body-md-line-height: 1.6;--type-body-md-tracking: 0;--type-body-sm-size: 14px;--type-body-sm-weight: 400;--type-body-sm-line-height: 1.55;--type-body-sm-tracking: 0;--type-body-xs-size: 12px;--type-body-xs-weight: 400;--type-body-xs-line-height: 1.5;--type-body-xs-tracking: 0;--type-label-lg-size: 14px;--type-label-lg-weight: 500;--type-label-lg-line-height: 1;--type-label-lg-tracking: .01em;--type-label-md-size: 12px;--type-label-md-weight: 500;--type-label-md-line-height: 1;--type-label-md-tracking: .015em;--type-label-sm-size: 11px;--type-label-sm-weight: 500;--type-label-sm-line-height: 1;--type-label-sm-tracking: .02em;--type-code-lg-size: 16px;--type-code-lg-weight: 500;--type-code-lg-line-height: 1.4;--type-code-lg-tracking: .01em;--type-code-md-size: 14px;--type-code-md-weight: 400;--type-code-md-line-height: 1.4;--type-code-md-tracking: .01em;--type-code-sm-size: 12px;--type-code-sm-weight: 400;--type-code-sm-line-height: 1.4;--type-code-sm-tracking: .01em}.type-code{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}:root{--space-base: 4px;--space-4: 4px;--space-8: 8px;--space-12: 12px;--space-16: 16px;--space-20: 20px;--space-24: 24px;--space-32: 32px;--space-40: 40px;--space-48: 48px;--space-64: 64px;--space-80: 80px;--space-96: 96px;--space-component-xs: var(--space-4);--space-component-sm: var(--space-8);--space-component-md: var(--space-12);--space-component-lg: var(--space-16);--space-component-xl: var(--space-24);--space-layout-xs: var(--space-16);--space-layout-sm: var(--space-24);--space-layout-md: var(--space-32);--space-layout-lg: var(--space-40);--space-layout-xl: var(--space-48);--space-structural-sm: var(--space-48);--space-structural-md: var(--space-64);--space-structural-lg: var(--space-80);--space-structural-xl: var(--space-96)}:root{--radius-base: 8px;--radius-0: 0px;--radius-2: 2px;--radius-4: 4px;--radius-6: 6px;--radius-8: 8px;--radius-10: 10px;--radius-12: 12px;--radius-16: 16px;--radius-20: 20px;--radius-24: 24px;--radius-28: 28px;--radius-full: 999px;--shape-interactive-sm: var(--radius-6);--shape-interactive-md: var(--radius-8);--shape-interactive-lg: var(--radius-10);--shape-interactive-pill: var(--radius-full);--shape-container-sm: var(--radius-8);--shape-container-md: var(--radius-12);--shape-container-lg: var(--radius-16);--shape-container-xl: var(--radius-20);--shape-feedback-sm: var(--radius-4);--shape-feedback-md: var(--radius-8);--shape-feedback-pill: var(--radius-full);--shape-structural-none: var(--radius-0);--shape-structural-sm: var(--radius-4);--shape-structural-md: var(--radius-8)}:root{--shadow-color-base: 8, 17, 40;--shadow-0: none;--shadow-1: 0px 1px 2px rgba(8,17,40,.06);--shadow-2: 0px 2px 4px rgba(8,17,40,.08), 0px 1px 2px rgba(8,17,40,.04);--shadow-3: 0px 4px 8px rgba(8,17,40,.1), 0px 2px 4px rgba(8,17,40,.06);--shadow-4: 0px 8px 16px rgba(8,17,40,.12), 0px 4px 8px rgba(8,17,40,.08);--shadow-5: 0px 16px 32px rgba(8,17,40,.16), 0px 8px 16px rgba(8,17,40,.1);--elevation-surface-flat: var(--shadow-0);--elevation-surface-sm: var(--shadow-1);--elevation-surface-md: var(--shadow-2);--elevation-interactive-resting: var(--shadow-1);--elevation-interactive-hover: var(--shadow-3);--elevation-interactive-pressed: var(--shadow-0);--elevation-overlay-dropdown: var(--shadow-3);--elevation-overlay-popover: var(--shadow-4);--elevation-overlay-modal: var(--shadow-5);--elevation-overlay-drawer: var(--shadow-5);--elevation-sticky-header: var(--shadow-2);--elevation-sticky-fab: var(--shadow-4);--elevation-sticky-toast: var(--shadow-4);--z-base: 0;--z-raised: 10;--z-dropdown: 100;--z-sticky: 200;--z-popover: 300;--z-backdrop: 400;--z-modal: 500;--z-toast: 600}.dark,[data-theme=dark]{--shadow-1: 0px 1px 2px rgba(8,17,40,.04);--shadow-2: 0px 2px 4px rgba(8,17,40,.06), 0px 1px 2px rgba(8,17,40,.03);--shadow-3: 0px 4px 8px rgba(8,17,40,.07), 0px 2px 4px rgba(8,17,40,.04);--shadow-4: 0px 8px 16px rgba(8,17,40,.08), 0px 4px 8px rgba(8,17,40,.06);--shadow-5: 0px 16px 32px rgba(8,17,40,.11), 0px 8px 16px rgba(8,17,40,.07)}:root{--duration-0: 0ms;--duration-75: 75ms;--duration-150: .15s;--duration-200: .2s;--duration-300: .3s;--duration-400: .4s;--duration-500: .5s;--motion-duration-interaction-fast: var(--duration-75);--motion-duration-interaction-base: var(--duration-150);--motion-duration-interaction-comfortable: var(--duration-200);--motion-duration-transition-enter: var(--duration-200);--motion-duration-transition-exit: var(--duration-150);--motion-duration-transition-layout: var(--duration-300);--motion-duration-transition-page: var(--duration-300);--motion-duration-expressive-feedback: var(--duration-400);--motion-duration-expressive-celebration: var(--duration-500);--motion-easing-productive: cubic-bezier(.2, 0, 0, 1);--motion-easing-enter: cubic-bezier(0, 0, .2, 1);--motion-easing-exit: cubic-bezier(.4, 0, 1, 1);--motion-easing-expressive: cubic-bezier(.34, 1.56, .64, 1)}.motion-feedback-hover{transition-property:background-color,border-color;transition-duration:var(--motion-duration-interaction-fast);transition-timing-function:var(--motion-easing-productive)}.motion-feedback-press{transition-property:transform,background-color;transition-duration:var(--motion-duration-interaction-fast);transition-timing-function:var(--motion-easing-productive)}.motion-feedback-focus{transition-property:outline,box-shadow;transition-duration:var(--motion-duration-interaction-base);transition-timing-function:var(--motion-easing-productive)}.motion-feedback-toggle{transition-property:background-color,transform;transition-duration:var(--motion-duration-interaction-base);transition-timing-function:var(--motion-easing-productive)}@keyframes motion-success{0%{opacity:0;transform:scale(.8)}to{opacity:1;transform:scale(1)}}@keyframes motion-error-shake{0%{transform:translate(0)}20%{transform:translate(-6px)}40%{transform:translate(6px)}60%{transform:translate(-4px)}80%{transform:translate(4px)}to{transform:translate(0)}}@keyframes motion-celebration{0%{opacity:0;transform:scale(.6) translateY(16px)}to{opacity:1;transform:scale(1) translateY(0)}}@media (prefers-reduced-motion: reduce){.motion-feedback-hover,.motion-feedback-press,.motion-feedback-focus,.motion-feedback-toggle{transition-duration:0ms}.motion-enter-fade,.motion-enter-slide-up,.motion-enter-slide-down,.motion-enter-scale,.motion-exit-fade,.motion-exit-slide-up,.motion-exit-slide-down,.motion-exit-scale{transition-property:opacity;transition-duration:75ms;transform:none!important}.motion-expressive-success,.motion-expressive-error,.motion-expressive-celebration{animation:none;transition:none}}:root{--grid-columns-base: 12;--grid-columns-simplified: 4;--grid-gutter-xl: 24px;--grid-gutter-lg: 20px;--grid-gutter-md: 16px;--grid-gutter-sm: 12px;--grid-margin-xl: 48px;--grid-margin-lg: 40px;--grid-margin-md: 32px;--grid-margin-sm: 24px;--grid-margin-xs: 16px;--grid-breakpoint-xl: 1440px;--grid-breakpoint-lg: 1200px;--grid-breakpoint-md: 900px;--grid-breakpoint-sm: 600px;--grid-breakpoint-xs: 0px;--grid-container-wide: 1440px;--grid-container-content: 1200px;--grid-container-text: 720px;--grid-container-narrow: 480px;--grid-columns-full: 12;--grid-columns-primary: 8;--grid-columns-secondary: 4;--grid-columns-half: 6;--grid-columns-third: 4;--grid-columns-quarter: 3;--grid-gutter-default: 20px;--grid-gutter-comfortable: 24px;--grid-gutter-compact: 16px;--grid-gutter-dense: 12px;--grid-margin-default: 40px;--grid-margin-comfortable: 48px;--grid-margin-compact: 32px;--grid-margin-minimal: 24px}:root{--icon-size-compact: 16px;--icon-size-default: 20px;--icon-size-comfortable: 24px;--icon-size-prominent: 32px;--icon-color-neutral-primary: var(--color-content-primary);--icon-color-neutral-secondary: var(--color-content-secondary);--icon-color-neutral-tertiary: var(--color-content-tertiary);--icon-color-action-primary: var(--color-action-primary);--icon-color-feedback-success: var(--color-feedback-success);--icon-color-feedback-error: var(--color-feedback-error);--icon-color-feedback-warning: var(--color-feedback-warning);--icon-color-surface-inverse: var(--color-content-inverted)}.arrow-badge{display:inline-flex;align-items:center;gap:var(--space-component-xs);box-sizing:border-box;border:1px solid transparent;font-family:var(--font-family-base);color:var(--_content);white-space:nowrap;width:fit-content}.arrow-badge[data-size=sm]{padding:var(--space-component-xs) var(--space-component-sm);font-size:var(--type-label-md-size);font-weight:var(--type-label-md-weight);line-height:var(--type-label-md-line-height);letter-spacing:var(--type-label-md-tracking)}.arrow-badge[data-size=md]{padding:var(--space-component-xs) var(--space-component-md);font-size:var(--type-label-lg-size);font-weight:var(--type-label-lg-weight);line-height:var(--type-label-lg-line-height);letter-spacing:var(--type-label-lg-tracking)}.arrow-badge[data-shape=pill]{border-radius:var(--shape-feedback-pill)}.arrow-badge[data-shape=tag]{border-radius:var(--shape-feedback-sm)}.arrow-badge[data-tone=neutral]{--_surface: var(--color-surface-raised);--_content: var(--color-content-secondary);--_border: var(--color-border-default)}.arrow-badge[data-tone=accent]{--_surface: var(--color-action-surface);--_content: var(--color-content-accent);--_border: var(--color-border-accent)}.arrow-badge[data-tone=success]{--_surface: var(--color-feedback-success-surface);--_content: var(--color-feedback-success-content);--_border: var(--color-feedback-success-border)}.arrow-badge[data-tone=warning]{--_surface: var(--color-feedback-warning-surface);--_content: var(--color-feedback-warning-content);--_border: var(--color-feedback-warning-border)}.arrow-badge[data-tone=error]{--_surface: var(--color-feedback-error-surface);--_content: var(--color-feedback-error-content);--_border: var(--color-feedback-error-border)}.arrow-badge[data-tone=premium]{--_surface: var(--color-feedback-premium-surface);--_content: var(--color-feedback-premium-content);--_border: var(--color-feedback-premium-border)}.arrow-badge[data-variant=soft]{background-color:var(--_surface);border-color:transparent}.arrow-badge[data-variant=outline]{background-color:transparent;border-color:var(--_border)}.arrow-badge__affix{display:inline-flex;align-items:center;flex-shrink:0}.arrow-btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-component-xs);box-sizing:border-box;border:1px solid transparent;font-family:var(--font-family-base);font-size:var(--type-label-lg-size);font-weight:var(--type-label-lg-weight);line-height:var(--type-label-lg-line-height);letter-spacing:var(--type-label-lg-tracking);white-space:nowrap;text-decoration:none;cursor:pointer;-webkit-user-select:none;user-select:none;transition-property:background-color,border-color,color;transition-duration:var(--motion-duration-interaction-fast);transition-timing-function:var(--motion-easing-productive)}.arrow-btn--block{display:flex;width:100%}.arrow-btn:focus-visible{outline:3px solid var(--color-state-focus-ring);outline-offset:2px}.arrow-btn[data-size=sm]{min-height:var(--space-32);padding:var(--space-component-xs) var(--space-component-md);border-radius:var(--shape-interactive-md)}.arrow-btn[data-size=md]{min-height:var(--space-40);padding:var(--space-component-sm) var(--space-component-lg);border-radius:var(--shape-interactive-md)}.arrow-btn[data-size=lg]{min-height:var(--space-48);padding:var(--space-component-md) var(--space-component-xl);border-radius:var(--shape-interactive-lg)}.arrow-btn[data-tone=accent]{--_solid: var(--color-action-primary);--_solid-hover: var(--color-action-hover);--_solid-pressed: var(--color-action-pressed);--_on-solid: var(--color-content-inverted);--_line: var(--color-border-accent);--_text: var(--color-content-accent);--_soft-hover: var(--color-state-hover-accent)}.arrow-btn[data-tone=neutral]{--_solid: var(--color-content-primary);--_solid-hover: var(--color-content-secondary);--_solid-pressed: var(--color-content-secondary);--_on-solid: var(--color-content-inverted);--_line: var(--color-border-default);--_text: var(--color-content-primary);--_soft-hover: var(--color-state-hover-neutral)}.arrow-btn[data-tone=danger]{--_solid: var(--color-feedback-error);--_solid-hover: var(--color-feedback-error-hover);--_solid-pressed: var(--color-feedback-error-hover);--_on-solid: var(--color-content-inverted);--_line: var(--color-feedback-error-border);--_text: var(--color-feedback-error-content);--_soft-hover: var(--color-state-hover-error)}.arrow-btn[data-variant=primary]{background-color:var(--_solid);border-color:var(--_solid);color:var(--_on-solid)}.arrow-btn[data-variant=primary]:hover:not(:disabled){background-color:var(--_solid-hover);border-color:var(--_solid-hover)}.arrow-btn[data-variant=primary]:active:not(:disabled){background-color:var(--_solid-pressed);border-color:var(--_solid-pressed)}.arrow-btn[data-variant=secondary]{background-color:transparent;border-color:var(--_line);color:var(--_text)}.arrow-btn[data-variant=secondary]:hover:not(:disabled){background-color:var(--_soft-hover)}.arrow-btn[data-variant=ghost]{background-color:transparent;border-color:transparent;color:var(--_text)}.arrow-btn[data-variant=ghost]:hover:not(:disabled){background-color:var(--_soft-hover)}.arrow-btn:disabled{cursor:not-allowed}.arrow-btn[data-variant=primary]:disabled{background-color:var(--color-action-disabled);border-color:var(--color-action-disabled);color:var(--color-content-disabled)}.arrow-btn[data-variant=secondary]:disabled{background-color:transparent;border-color:var(--color-border-default);color:var(--color-content-disabled)}.arrow-btn[data-variant=ghost]:disabled{background-color:transparent;color:var(--color-content-disabled)}.arrow-btn[aria-busy=true]{cursor:progress}.arrow-btn__affix{display:inline-flex;align-items:center;flex-shrink:0}.arrow-btn__label{display:inline-block}.arrow-btn__spinner{width:1em;height:1em;flex-shrink:0;border:2px solid currentColor;border-right-color:transparent;border-radius:var(--radius-full);animation:arrow-btn-spin .6s linear infinite}@keyframes arrow-btn-spin{to{transform:rotate(360deg)}}@media (prefers-reduced-motion: reduce){.arrow-btn{transition-duration:0ms}.arrow-btn__spinner{animation-duration:1.2s}}.arrow-icon{display:inline-block;vertical-align:middle;flex-shrink:0}.arrow-checkbox{display:inline-flex;align-items:center;gap:var(--space-component-sm);cursor:pointer;font-family:var(--font-family-base)}.arrow-checkbox__input{position:absolute;width:0;height:0;opacity:0;margin:0}.arrow-checkbox__box{position:relative;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;box-sizing:border-box;border:1.5px solid var(--color-border-default);border-radius:var(--shape-interactive-sm);background-color:var(--color-surface-base);color:var(--color-content-inverted);transition-property:background-color,border-color;transition-duration:var(--motion-duration-interaction-base);transition-timing-function:var(--motion-easing-productive)}.arrow-checkbox[data-size=sm] .arrow-checkbox__box{width:16px;height:16px}.arrow-checkbox[data-size=md] .arrow-checkbox__box{width:20px;height:20px}.arrow-checkbox:not([data-disabled]):hover .arrow-checkbox__box{border-color:var(--color-border-strong)}.arrow-checkbox__input:checked+.arrow-checkbox__box,.arrow-checkbox__input:indeterminate+.arrow-checkbox__box{background-color:var(--color-action-primary);border-color:var(--color-action-primary)}.arrow-checkbox__input:focus-visible+.arrow-checkbox__box{outline:3px solid var(--color-state-focus-ring);outline-offset:2px}.arrow-checkbox__check{animation:arrow-checkbox-pop var(--motion-duration-interaction-base) var(--motion-easing-productive)}.arrow-checkbox__dash{width:60%;height:2px;border-radius:var(--radius-full);background-color:var(--color-content-inverted)}@keyframes arrow-checkbox-pop{0%{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1}}.arrow-checkbox__label{font-size:var(--type-body-sm-size);font-weight:var(--type-body-sm-weight);line-height:var(--type-body-sm-line-height);color:var(--color-content-primary)}.arrow-checkbox[data-disabled]{cursor:not-allowed}.arrow-checkbox[data-disabled] .arrow-checkbox__box{background-color:var(--color-state-disabled-surface);border-color:var(--color-border-default)}.arrow-checkbox[data-disabled] .arrow-checkbox__input:checked+.arrow-checkbox__box,.arrow-checkbox[data-disabled] .arrow-checkbox__input:indeterminate+.arrow-checkbox__box{background-color:var(--color-action-disabled);border-color:var(--color-action-disabled)}.arrow-checkbox[data-disabled] .arrow-checkbox__label{color:var(--color-content-disabled)}@media (prefers-reduced-motion: reduce){.arrow-checkbox__box{transition-duration:0ms}.arrow-checkbox__check{animation:none}}.arrow-dropdown{position:relative;display:inline-block}.arrow-dropdown__menu{position:absolute;top:100%;z-index:var(--z-dropdown);min-width:100%;display:flex;flex-direction:column;gap:var(--space-component-xs);padding:var(--space-component-sm) 6px;background-color:var(--color-surface-base);border:1px solid var(--color-border-default);border-radius:var(--radius-10);box-shadow:0 16px 32px -12px #0811281a}.arrow-dropdown-item{display:flex;align-items:center;gap:var(--space-component-xs);width:100%;box-sizing:border-box;padding:var(--space-component-sm) 10px;border:none;border-radius:var(--shape-interactive-md);background-color:transparent;color:var(--color-content-secondary);font-family:inherit;font-size:var(--type-body-sm-size);font-weight:var(--font-weight-medium);text-align:left;white-space:nowrap;cursor:pointer;transition-property:background-color,color;transition-duration:var(--motion-duration-interaction-fast);transition-timing-function:var(--motion-easing-productive)}.arrow-dropdown-item__icon{flex-shrink:0}.arrow-dropdown-item:hover:not(:disabled){background-color:var(--color-state-hover-neutral)}.arrow-dropdown-item:focus-visible{outline:3px solid var(--color-state-focus-ring);outline-offset:-3px}.arrow-dropdown-item[data-tone=danger]{color:var(--color-feedback-error-content)}.arrow-dropdown-item[data-tone=danger]:hover:not(:disabled){background-color:var(--color-state-hover-error)}.arrow-dropdown-item:disabled{color:var(--color-content-disabled);cursor:not-allowed}@media (prefers-reduced-motion: reduce){.arrow-dropdown-item{transition-duration:0ms}}.arrow-iconbtn{display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;border:1px solid transparent;border-radius:var(--shape-interactive-md);cursor:pointer;color:inherit;text-decoration:none;transition-property:background-color,border-color,color;transition-duration:var(--motion-duration-interaction-fast);transition-timing-function:var(--motion-easing-productive)}.arrow-iconbtn:focus-visible{outline:3px solid var(--color-state-focus-ring);outline-offset:2px}.arrow-iconbtn[data-size=sm]{padding:var(--space-component-sm)}.arrow-iconbtn[data-size=md],.arrow-iconbtn[data-size=lg]{padding:var(--space-component-md)}.arrow-iconbtn[data-tone=accent]{--_solid: var(--color-action-primary);--_solid-hover: var(--color-action-hover);--_solid-pressed: var(--color-action-pressed);--_on-solid: var(--color-content-inverted);--_text: var(--color-content-accent);--_line: var(--color-border-accent);--_soft-hover: var(--color-state-hover-accent)}.arrow-iconbtn[data-tone=neutral]{--_solid: var(--color-content-primary);--_solid-hover: var(--color-content-secondary);--_solid-pressed: var(--color-content-secondary);--_on-solid: var(--color-content-inverted);--_text: var(--color-content-secondary);--_line: var(--color-border-default);--_soft-hover: var(--color-state-hover-neutral)}.arrow-iconbtn[data-tone=danger]{--_solid: var(--color-feedback-error);--_solid-hover: var(--color-feedback-error-hover);--_solid-pressed: var(--color-feedback-error-hover);--_on-solid: var(--color-content-inverted);--_text: var(--color-feedback-error-content);--_line: var(--color-feedback-error-border);--_soft-hover: var(--color-state-hover-error)}.arrow-iconbtn[data-variant=primary]{background-color:var(--_solid);border-color:var(--_solid);color:var(--_on-solid)}.arrow-iconbtn[data-variant=primary]:hover:not(:disabled):not([aria-disabled=true]){background-color:var(--_solid-hover);border-color:var(--_solid-hover)}.arrow-iconbtn[data-variant=primary]:active:not(:disabled):not([aria-disabled=true]){background-color:var(--_solid-pressed);border-color:var(--_solid-pressed)}.arrow-iconbtn[data-variant=secondary]{background-color:transparent;border-color:var(--_line);color:var(--_text)}.arrow-iconbtn[data-variant=secondary]:hover:not(:disabled):not([aria-disabled=true]){background-color:var(--_soft-hover)}.arrow-iconbtn[data-variant=ghost]{background-color:transparent;border-color:transparent;color:var(--_text)}.arrow-iconbtn[data-variant=ghost]:hover:not(:disabled):not([aria-disabled=true]){background-color:var(--_soft-hover)}.arrow-iconbtn:disabled,.arrow-iconbtn[aria-disabled=true]{cursor:not-allowed;pointer-events:none}.arrow-iconbtn[data-variant=primary]:disabled,.arrow-iconbtn[data-variant=primary][aria-disabled=true]{background-color:var(--color-action-disabled);border-color:var(--color-action-disabled);color:var(--color-content-disabled)}.arrow-iconbtn[data-variant=secondary]:disabled,.arrow-iconbtn[data-variant=secondary][aria-disabled=true]{border-color:var(--color-border-default);color:var(--color-content-disabled)}.arrow-iconbtn[data-variant=ghost]:disabled,.arrow-iconbtn[data-variant=ghost][aria-disabled=true]{color:var(--color-content-disabled)}.arrow-iconbtn[aria-busy=true]{cursor:progress}.arrow-iconbtn__spinner{width:1em;height:1em;border:2px solid currentColor;border-right-color:transparent;border-radius:var(--radius-full);animation:arrow-iconbtn-spin .6s linear infinite}@keyframes arrow-iconbtn-spin{to{transform:rotate(360deg)}}@media (prefers-reduced-motion: reduce){.arrow-iconbtn{transition-duration:0ms}.arrow-iconbtn__spinner{animation-duration:1.2s}}.arrow-label{display:inline-flex;align-items:center;gap:var(--space-component-xs);font-family:var(--font-family-base);font-size:var(--type-label-lg-size);font-weight:var(--type-label-lg-weight);line-height:var(--type-label-lg-line-height);letter-spacing:var(--type-label-lg-tracking);color:var(--color-content-primary)}.arrow-label__required{color:var(--color-feedback-error)}.arrow-label__hint{display:inline-flex;align-items:center;color:var(--color-content-tertiary)}.arrow-text{margin:0;font-family:var(--font-family-base);color:inherit}.arrow-text--truncate{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}.arrow-login-card[data-v-d582462c]{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;max-width:880px;margin-top:var(--space-component-sm);border:1px solid var(--color-border-default);border-radius:var(--shape-container-lg);background-color:var(--color-surface-base);overflow:hidden}.arrow-login-card__media[data-v-d582462c]{background-color:var(--color-action-surface)}.arrow-login-card__img[data-v-d582462c]{display:block;width:100%;height:100%;object-fit:cover}.arrow-login-card__body[data-v-d582462c]{display:flex;flex-direction:column;justify-content:flex-start;padding:var(--space-layout-md)}.arrow-login-card__badge[data-v-d582462c]{align-self:flex-start}.arrow-login-card__content[data-v-d582462c]{flex:1;display:flex;flex-direction:column;justify-content:center}.arrow-login-card__desc[data-v-d582462c]{margin-top:var(--space-layout-md)}.arrow-login-card__actions[data-v-d582462c]{margin-top:var(--space-component-xl)}.arrow-login-card__hint[data-v-d582462c]{margin-top:var(--space-component-lg)}.arrow-login-card__actions[data-v-d582462c]{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-component-md)}.arrow-login-card__actions--stack[data-v-d582462c]{flex-direction:column;flex-wrap:nowrap;align-items:flex-start}@media (max-width: 640px){.arrow-login-card[data-v-d582462c]{grid-template-columns:1fr}.arrow-login-card__media[data-v-d582462c]{min-height:180px}}.arrow-input{display:flex;flex-direction:column;gap:var(--space-component-xs);font-family:var(--font-family-base)}.arrow-input__field{position:relative;display:flex;align-items:center}.arrow-input__icon{position:absolute;left:var(--space-component-md);color:var(--color-content-tertiary);pointer-events:none}.arrow-input__control{width:100%;box-sizing:border-box;padding:var(--space-component-sm) var(--space-component-md);border:1px solid var(--color-border-default);border-radius:var(--shape-interactive-md);background-color:var(--color-surface-base);color:var(--color-content-primary);font-family:inherit;font-size:var(--type-body-md-size);font-weight:var(--type-body-md-weight);line-height:var(--type-body-md-line-height);transition-property:border-color,box-shadow;transition-duration:var(--motion-duration-interaction-base);transition-timing-function:var(--motion-easing-productive)}.arrow-input__control--icon{padding-left:calc(var(--space-component-md) + 20px + var(--space-component-sm))}.arrow-input__control::placeholder{color:var(--color-content-tertiary)}.arrow-input__control:focus{outline:none;border-color:var(--color-border-accent);box-shadow:0 0 0 3px var(--color-state-focus-ring)}.arrow-input[data-error] .arrow-input__control{border-color:var(--color-border-error)}.arrow-input[data-error] .arrow-input__control:focus{border-color:var(--color-border-error);box-shadow:0 0 0 3px var(--color-state-focus-ring-error)}.arrow-input__control:disabled{background-color:var(--color-state-disabled-surface);color:var(--color-content-disabled);cursor:not-allowed}.arrow-input__error{margin:0;font-size:var(--type-body-xs-size);line-height:var(--type-body-xs-line-height);color:var(--color-feedback-error-content)}@media (prefers-reduced-motion: reduce){.arrow-input__control{transition-duration:0ms}}.arrow-ping{--arrow-ping-duration: 1.5s;position:relative;display:inline-flex;flex-shrink:0;vertical-align:middle}.arrow-ping[data-size=sm]{width:var(--space-8);height:var(--space-8)}.arrow-ping[data-size=md]{width:var(--space-12);height:var(--space-12)}.arrow-ping[data-size=lg]{width:var(--space-16);height:var(--space-16)}.arrow-ping[data-tone=neutral]{--_c: var(--color-content-tertiary)}.arrow-ping[data-tone=accent]{--_c: var(--color-action-primary)}.arrow-ping[data-tone=success]{--_c: var(--color-feedback-success)}.arrow-ping[data-tone=warning]{--_c: var(--color-feedback-warning)}.arrow-ping[data-tone=error]{--_c: var(--color-feedback-error)}.arrow-ping__dot,.arrow-ping__ring{position:absolute;top:0;right:0;bottom:0;left:0;border-radius:var(--radius-full);background-color:var(--_c)}.arrow-ping__dot{position:relative}.arrow-ping__ring{animation:arrow-ping-pulse var(--arrow-ping-duration) cubic-bezier(0,0,.2,1) infinite}@keyframes arrow-ping-pulse{0%{transform:scale(1);opacity:.6}75%,to{transform:scale(2.2);opacity:0}}.arrow-ping[data-paused] .arrow-ping__ring{animation:none;display:none}@media (prefers-reduced-motion: reduce){.arrow-ping__ring{animation:none;display:none}}.arrow-switch{display:inline-flex;align-items:center;gap:var(--space-component-sm);cursor:pointer;font-family:var(--font-family-base)}.arrow-switch__input{position:absolute;width:0;height:0;opacity:0;margin:0}.arrow-switch__track{position:relative;display:inline-flex;align-items:center;flex-shrink:0;box-sizing:border-box;border-radius:var(--shape-interactive-pill);background-color:var(--color-border-strong);transition-property:background-color;transition-duration:var(--motion-duration-interaction-base);transition-timing-function:var(--motion-easing-productive)}.arrow-switch[data-size=md] .arrow-switch__track{width:36px;height:20px;padding:2px}.arrow-switch[data-size=sm] .arrow-switch__track{width:28px;height:16px;padding:2px}.arrow-switch__thumb{display:block;box-sizing:border-box;border-radius:var(--shape-interactive-pill);background-color:var(--color-surface-base);box-shadow:var(--elevation-interactive-resting);transition-property:transform;transition-duration:var(--motion-duration-interaction-base);transition-timing-function:var(--motion-easing-productive)}.arrow-switch[data-size=md] .arrow-switch__thumb{width:16px;height:16px}.arrow-switch[data-size=sm] .arrow-switch__thumb{width:12px;height:12px}.arrow-switch__input:checked+.arrow-switch__track{background-color:var(--color-action-primary)}.arrow-switch[data-size=md] .arrow-switch__input:checked+.arrow-switch__track .arrow-switch__thumb{transform:translate(16px)}.arrow-switch[data-size=sm] .arrow-switch__input:checked+.arrow-switch__track .arrow-switch__thumb{transform:translate(12px)}.arrow-switch__input:focus-visible+.arrow-switch__track{outline:3px solid var(--color-state-focus-ring);outline-offset:2px}.arrow-switch__label{font-size:var(--type-body-sm-size);font-weight:var(--type-body-sm-weight);line-height:var(--type-body-sm-line-height);color:var(--color-content-primary)}.arrow-switch[data-disabled]{cursor:not-allowed}.arrow-switch[data-disabled] .arrow-switch__track{background-color:var(--color-state-disabled-surface)}.arrow-switch[data-disabled] .arrow-switch__input:checked+.arrow-switch__track{background-color:var(--color-action-disabled)}.arrow-switch[data-disabled] .arrow-switch__thumb{box-shadow:none;background-color:var(--color-surface-subtle)}.arrow-switch[data-disabled] .arrow-switch__label{color:var(--color-content-disabled)}@media (prefers-reduced-motion: reduce){.arrow-switch__track,.arrow-switch__thumb{transition-duration:0ms}}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--color-surface-subtle);color:var(--color-content-primary);font-family:var(--font-family-base);-webkit-font-smoothing:antialiased}
+img,svg{display:block}
+button{font-family:inherit}
+a{color:var(--color-content-accent)}
+
+.text-display-md{font-size:var(--type-display-md-size);font-weight:var(--type-display-md-weight);line-height:var(--type-display-md-line-height);letter-spacing:var(--type-display-md-tracking);font-family:var(--font-family-base)}
+.text-heading-xl{font-size:var(--type-heading-xl-size);font-weight:var(--type-heading-xl-weight);line-height:var(--type-heading-xl-line-height);letter-spacing:var(--type-heading-xl-tracking);font-family:var(--font-family-base)}
+.text-heading-lg{font-size:var(--type-heading-lg-size);font-weight:var(--type-heading-lg-weight);line-height:var(--type-heading-lg-line-height);letter-spacing:var(--type-heading-lg-tracking);font-family:var(--font-family-base)}
+.text-heading-md{font-size:var(--type-heading-md-size);font-weight:var(--type-heading-md-weight);line-height:var(--type-heading-md-line-height);letter-spacing:var(--type-heading-md-tracking);font-family:var(--font-family-base)}
+.text-heading-sm{font-size:var(--type-heading-sm-size);font-weight:var(--type-heading-sm-weight);line-height:var(--type-heading-sm-line-height);letter-spacing:var(--type-heading-sm-tracking);font-family:var(--font-family-base)}
+.text-body-lg{font-size:var(--type-body-lg-size);font-weight:var(--type-body-lg-weight);line-height:var(--type-body-lg-line-height);font-family:var(--font-family-base)}
+.text-body-md{font-size:var(--type-body-md-size);font-weight:var(--type-body-md-weight);line-height:var(--type-body-md-line-height);font-family:var(--font-family-base)}
+.text-body-sm{font-size:var(--type-body-sm-size);font-weight:var(--type-body-sm-weight);line-height:var(--type-body-sm-line-height);font-family:var(--font-family-base)}
+.text-body-xs{font-size:var(--type-body-xs-size);font-weight:var(--type-body-xs-weight);line-height:var(--type-body-xs-line-height);font-family:var(--font-family-base)}
+.text-label-lg{font-size:var(--type-label-lg-size);font-weight:var(--type-label-lg-weight);line-height:var(--type-label-lg-line-height);letter-spacing:var(--type-label-lg-tracking);font-family:var(--font-family-base)}
+.text-label-md{font-size:var(--type-label-md-size);font-weight:var(--type-label-md-weight);line-height:var(--type-label-md-line-height);letter-spacing:var(--type-label-md-tracking);font-family:var(--font-family-base)}
+.text-label-sm{font-size:var(--type-label-sm-size);font-weight:var(--type-label-sm-weight);line-height:var(--type-label-sm-line-height);letter-spacing:var(--type-label-sm-tracking);font-family:var(--font-family-base)}
+
+.tone-primary{color:var(--color-content-primary)}
+.tone-secondary{color:var(--color-content-secondary)}
+.tone-tertiary{color:var(--color-content-tertiary)}
+.tone-accent{color:var(--color-content-accent)}
+.tone-inverted{color:var(--color-content-inverted)}
+.tone-success{color:var(--color-feedback-success-content)}
+.tone-error{color:var(--color-feedback-error-content)}
+.tone-premium{color:var(--color-feedback-premium-content)}
+
+.icon{flex-shrink:0}
+
+.app-shell{min-height:100vh;display:flex;flex-direction:column}
+
+.topbar{background:var(--color-surface-inverted);color:var(--color-content-inverted);padding:var(--space-component-lg) var(--space-layout-lg);display:flex;align-items:center;justify-content:space-between;gap:var(--space-layout-xs);border-bottom:1px solid var(--color-border-default)}
+.brand{display:flex;align-items:baseline;gap:var(--space-component-md)}
+.brand__mark{font-weight:700}
+.brand__mark b{font-weight:700}
+.brand__tag{font-size:var(--type-label-sm-size);font-weight:var(--type-label-sm-weight);letter-spacing:var(--type-label-sm-tracking);color:var(--color-content-inverted);opacity:.7;padding:2px var(--space-component-sm);border:1px solid rgba(255,255,255,.24);border-radius:var(--shape-feedback-sm)}
+.topbar-meta{display:flex;align-items:center;gap:var(--space-component-lg)}
+.topbar-meta__item{display:flex;align-items:center;gap:var(--space-component-xs);color:var(--color-content-inverted);opacity:.85}
+
+.screen[hidden]{display:none}
+
+.login-wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:var(--space-structural-sm) var(--space-layout-lg)}
+.login-card{width:100%;max-width:420px;background:var(--color-surface-base);border:1px solid var(--color-border-default);border-radius:var(--shape-container-lg);box-shadow:var(--elevation-surface-sm);padding:var(--space-layout-lg)}
+.login-card__badge{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:var(--shape-container-md);background:var(--color-action-surface);color:var(--color-content-accent);margin-bottom:var(--space-layout-xs)}
+.login-card__desc{margin-top:var(--space-component-sm);margin-bottom:var(--space-layout-sm)}
+.login-card__field{margin-bottom:var(--space-component-lg)}
+.login-card__hint{margin-top:var(--space-component-lg);text-align:center}
+
+.dashboard{flex:1;width:100%;max-width:var(--grid-container-wide);margin:0 auto;padding:var(--space-layout-md) var(--space-layout-lg) var(--space-structural-sm)}
+
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:var(--space-layout-xs);margin-bottom:var(--space-layout-sm)}
+.kpi-card{background:var(--color-surface-base);border:1px solid var(--color-border-default);border-radius:var(--shape-container-md);padding:var(--space-layout-xs);box-shadow:var(--elevation-surface-flat)}
+.kpi-card__value{margin-top:var(--space-component-xs);margin-bottom:var(--space-component-xs)}
+.kpi-card__hint{display:block}
+
+.panel{background:var(--color-surface-base);border:1px solid var(--color-border-default);border-radius:var(--shape-container-md);padding:var(--space-layout-xs);margin-bottom:var(--space-layout-sm);box-shadow:var(--elevation-surface-flat)}
+.panel__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--space-layout-xs);gap:var(--space-component-md);flex-wrap:wrap}
+.panel__header-actions{display:flex;align-items:center;gap:var(--space-component-sm)}
+.panel__search{width:280px;max-width:100%}
+
+.filter-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--space-layout-xs)}
+.advanced-filters{margin-top:var(--space-layout-xs);padding-top:var(--space-layout-xs);border-top:1px solid var(--color-border-default)}
+.advanced-filters summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:var(--space-component-xs)}
+.advanced-filters summary::-webkit-details-marker{display:none}
+.advanced-filters summary::before{content:'›';display:inline-block;transition:transform var(--motion-duration-interaction-base) var(--motion-easing-productive)}
+.advanced-filters[open] summary::before{transform:rotate(90deg)}
+.filter-group{padding-top:var(--space-component-sm)}
+.filter-group__title{display:block;margin-bottom:var(--space-component-md);padding-bottom:var(--space-component-sm);border-bottom:1px solid var(--color-border-default)}
+.filter-group__fields{display:flex;flex-direction:column;gap:var(--space-component-md)}
+.field label{display:block;margin-bottom:var(--space-component-xs)}
+.field select,.field input{width:100%}
+
+.multiselect{position:relative}
+.multiselect__trigger{width:100%;display:flex;align-items:center;justify-content:space-between;gap:var(--space-component-sm);cursor:pointer;text-align:left;font-family:var(--font-family-base)}
+.multiselect__trigger-text{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.multiselect__chev{flex-shrink:0;transition-property:transform;transition-duration:var(--motion-duration-interaction-base);transition-timing-function:var(--motion-easing-productive)}
+.multiselect.is-open .multiselect__chev{transform:rotate(180deg)}
+.multiselect__menu{position:absolute;top:calc(100% + 4px);left:0;right:0;z-index:20;max-height:260px;overflow-y:auto;background:var(--color-surface-base);border:1px solid var(--color-border-default);border-radius:var(--shape-container-sm);box-shadow:var(--elevation-surface-md);padding:var(--space-component-sm)}
+.multiselect__menu[hidden]{display:none}
+.multiselect__item{display:flex;padding:var(--space-component-xs) var(--space-component-sm);border-radius:var(--shape-interactive-sm);width:100%}
+.multiselect__item:hover{background-color:var(--color-surface-subtle)}
+.multiselect__footer{display:flex;justify-content:flex-end;padding-top:var(--space-component-xs);margin-top:var(--space-component-xs);border-top:1px solid var(--color-border-default)}
+.multiselect__clear{background:none;border:none;cursor:pointer;color:var(--color-content-accent);padding:0}
+
+.charts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(520px,1fr));gap:var(--space-layout-sm);margin-bottom:var(--space-layout-sm)}
+.chart-card{background:var(--color-surface-base);border:1px solid var(--color-border-default);border-radius:var(--shape-container-md);padding:var(--space-layout-sm);box-shadow:var(--elevation-surface-flat)}
+.chart-card__body{position:relative;height:360px;margin-top:var(--space-component-lg)}
+
+.table-wrap{overflow-x:auto;border-radius:var(--shape-container-md);border:1px solid var(--color-border-default)}
+table.data-table{width:max-content;min-width:100%;border-collapse:collapse;background:var(--color-surface-base)}
+table.data-table thead th{text-align:left;padding:var(--space-component-md) var(--space-component-lg);border-bottom:1px solid var(--color-border-default);white-space:nowrap;color:var(--color-content-tertiary)}
+table.data-table tbody td{padding:var(--space-component-md) var(--space-component-lg);border-bottom:1px solid var(--color-border-default);white-space:nowrap}
+table.data-table tbody tr{cursor:pointer;transition-property:background-color;transition-duration:var(--motion-duration-interaction-base);transition-timing-function:var(--motion-easing-productive)}
+table.data-table tbody tr:hover{background-color:var(--color-surface-subtle)}
+table.data-table tbody tr.is-expanded{background-color:var(--color-surface-subtle)}
+tr.detail-row td{white-space:normal;background:var(--color-surface-subtle)}
+.detail-grid{display:flex;flex-wrap:wrap;gap:var(--space-component-sm)}
+.detail-col{display:flex;flex-direction:column;gap:var(--space-component-xs);min-width:180px}
+.chev{transition-property:transform;transition-duration:var(--motion-duration-interaction-base);transition-timing-function:var(--motion-easing-productive)}
+tr.is-expanded .chev{transform:rotate(180deg)}
+.table-scroll-hint{display:block;margin-bottom:var(--space-component-sm)}
+
+.footer-note{text-align:center;padding:var(--space-layout-xs) 0}
+
+@media (max-width:900px){
+.topbar{flex-direction:column;align-items:flex-start;gap:var(--space-component-sm)}
+.dashboard{padding:var(--space-layout-sm)}
+}
+@media (prefers-reduced-motion: reduce){
+table.data-table tbody tr, .chev { transition-duration:0ms }
+}
+</style>
+</head>
+<body>
+<div class="app-shell">
+
+<header class="topbar">
+  <div class="brand">
+    <span class="text-heading-md brand__mark">effecti<b>·</b>CS</span>
+    <span class="brand__tag">Matriz de Oportunidades</span>
+  </div>
+  <div class="topbar-meta">
+    <span class="topbar-meta__item text-label-sm" id="sync-status" hidden>
+      <span class="arrow-ping" data-tone="success" data-size="sm" id="sync-ping">
+        <span class="arrow-ping__ring"></span>
+        <span class="arrow-ping__dot"></span>
+      </span>
+      <span id="sync-status-text">Dados sincronizados</span>
+    </span>
+    <span class="topbar-meta__item text-label-sm" id="user-info" hidden>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="icon" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"></path></svg>
+      <span id="user-info-text"></span>
+    </span>
+    <label class="arrow-switch" data-size="md">
+      <input type="checkbox" class="arrow-switch__input" id="theme-toggle">
+      <span class="arrow-switch__track"><span class="arrow-switch__thumb"></span></span>
+      <span class="arrow-switch__label text-label-sm" style="color:var(--color-content-inverted)">Modo escuro</span>
+    </label>
+    <button class="arrow-btn" data-variant="ghost" data-tone="neutral" data-size="sm" id="logout-btn" hidden style="color:var(--color-content-inverted)">
+      <span class="arrow-btn__label">Sair</span>
+    </button>
+  </div>
+</header>
+
+<main style="flex:1;display:flex;flex-direction:column">
+
+<section id="login-screen" class="screen">
+  <div class="login-wrap">
+    <form class="login-card" id="login-form" novalidate>
+      <div class="login-card__badge">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="icon" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+      </div>
+      <h1 class="text-heading-lg">Acesso restrito</h1>
+      <p class="text-body-sm tone-secondary login-card__desc">Use o token pessoal que o time te passou para abrir a Matriz de Oportunidades.</p>
+      <div class="login-card__field">
+        <div class="arrow-input" id="token-wrap">
+          <label class="arrow-label text-label-lg" for="token">Token de acesso</label>
+          <div class="arrow-input__field">
+            <input id="token" type="password" class="arrow-input__control" placeholder="Cole seu token pessoal" autocomplete="off">
+          </div>
+          <p class="arrow-input__error" id="login-error" hidden></p>
+        </div>
+      </div>
+      <button class="arrow-btn arrow-btn--block" data-variant="primary" data-tone="accent" data-size="md" id="login-btn" type="submit">
+        <span class="arrow-btn__spinner" id="login-spinner" hidden></span>
+        <span class="arrow-btn__label" id="login-label">Entrar</span>
+      </button>
+      <p class="text-label-sm tone-tertiary login-card__hint">Cada pessoa tem um token individual. Se o seu não funcionar, fale com o time de CS.</p>
+    </form>
+  </div>
+</section>
+
+<section id="dashboard-screen" class="screen" hidden>
+  <div class="dashboard">
+
+    <div class="kpi-grid" id="kpi-grid"></div>
+
+    <div class="panel">
+      <div class="panel__header">
+        <span class="text-heading-sm">Filtros</span>
+        <div class="panel__header-actions">
+          <span class="arrow-badge" data-tone="accent" data-variant="soft" data-size="sm" data-shape="pill" id="quick-filter-chip" hidden>
+            <span id="quick-filter-text"></span>
+            <button type="button" id="quick-filter-clear" aria-label="Remover filtro rápido" style="background:none;border:none;cursor:pointer;color:inherit;font-weight:700;padding:0;line-height:1">×</button>
+          </span>
+          <span class="text-label-sm tone-tertiary" id="filter-count"></span>
+          <button class="arrow-btn" data-variant="ghost" data-tone="neutral" data-size="sm" id="clear-filters">
+            <span class="arrow-btn__label">Limpar filtros</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="filter-groups">
+
+        <div class="filter-group">
+          <span class="text-label-md tone-secondary filter-group__title">Perfil do cliente</span>
+          <div class="filter-group__fields">
+            <div class="field">
+              <label class="text-label-sm tone-tertiary" id="lbl-plano">Plano</label>
+              <div class="multiselect" data-id="plano">
+                <button type="button" class="arrow-input__control multiselect__trigger" aria-haspopup="listbox" aria-labelledby="lbl-plano">
+                  <span class="multiselect__trigger-text">Todos</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="icon multiselect__chev" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+                </button>
+                <div class="multiselect__menu" hidden></div>
+              </div>
+            </div>
+            <div class="field">
+              <label class="text-label-sm tone-tertiary" id="lbl-engajador">Engajador</label>
+              <div class="multiselect" data-id="engajador">
+                <button type="button" class="arrow-input__control multiselect__trigger" aria-haspopup="listbox" aria-labelledby="lbl-engajador">
+                  <span class="multiselect__trigger-text">Todos</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="icon multiselect__chev" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+                </button>
+                <div class="multiselect__menu" hidden></div>
+              </div>
+            </div>
+            <div class="field">
+              <label class="text-label-sm tone-tertiary" for="f-codigo">Código cliente</label>
+              <input id="f-codigo" class="arrow-input__control" placeholder="Ex.: 48950" inputmode="numeric">
+            </div>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <span class="text-label-md tone-secondary filter-group__title">Saúde &amp; engajamento</span>
+          <div class="filter-group__fields">
+            <div class="field">
+              <label class="text-label-sm tone-tertiary" for="f-hs">Customer Health Score</label>
+              <select id="f-hs" class="arrow-input__control">
+                <option value="">Todos</option>
+                <option value="critico">Crítico (&lt; 40)</option>
+                <option value="atencao">Atenção (40–59)</option>
+                <option value="bom">Bom (60–79)</option>
+                <option value="excelente">Excelente (≥ 80)</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="text-label-sm tone-tertiary" for="f-status-mens">Status mensalidade</label>
+              <select id="f-status-mens" class="arrow-input__control"></select>
+            </div>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <span class="text-label-md tone-secondary filter-group__title">Oportunidades</span>
+          <div class="filter-group__fields">
+            <div class="field">
+              <label class="text-label-sm tone-tertiary" for="f-oportunidade">Tipo de oportunidade</label>
+              <select id="f-oportunidade" class="arrow-input__control">
+                <option value="">Todas</option>
+                <option value="ofertar">Tem adicional a ofertar</option>
+                <option value="migracao">Migração de plano</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="text-label-sm tone-tertiary" id="lbl-qtd-ofertar">Qtd. de oportunidades a ofertar</label>
+              <div class="multiselect" data-id="qtdOfertar">
+                <button type="button" class="arrow-input__control multiselect__trigger" aria-haspopup="listbox" aria-labelledby="lbl-qtd-ofertar">
+                  <span class="multiselect__trigger-text">Todas</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="icon multiselect__chev" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+                </button>
+                <div class="multiselect__menu" hidden></div>
+              </div>
+            </div>
+            <div class="field">
+              <label class="text-label-sm tone-tertiary" for="f-saving">Em saving</label>
+              <select id="f-saving" class="arrow-input__control">
+                <option value="">Todos</option>
+                <option value="sim">Sim</option>
+                <option value="nao">Não</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <span class="text-label-md tone-secondary filter-group__title">Churn, expansão &amp; upsell</span>
+          <div class="filter-group__fields">
+            <div class="field">
+              <label class="text-label-sm tone-tertiary" for="f-churn">Churn nos últimos 12 meses</label>
+              <select id="f-churn" class="arrow-input__control">
+                <option value="">Todos</option>
+                <option value="sim">Sim</option>
+                <option value="nao">Não</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="text-label-sm tone-tertiary" for="f-upsell">Upsell nos últimos 12 meses</label>
+              <select id="f-upsell" class="arrow-input__control">
+                <option value="">Todos</option>
+                <option value="sim">Sim</option>
+                <option value="nao">Não</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="text-label-sm tone-tertiary" id="lbl-categoria-exp">Motivo da última expansão</label>
+              <div class="multiselect" data-id="categoriaExp">
+                <button type="button" class="arrow-input__control multiselect__trigger" aria-haspopup="listbox" aria-labelledby="lbl-categoria-exp">
+                  <span class="multiselect__trigger-text">Todos</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="icon multiselect__chev" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+                </button>
+                <div class="multiselect__menu" hidden></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <details class="advanced-filters">
+        <summary class="text-label-md tone-secondary">Filtros avançados</summary>
+        <div class="filter-groups" style="margin-top:var(--space-layout-xs)">
+          <div class="filter-group" style="padding-top:0">
+            <div class="filter-group__fields">
+              <div class="field">
+                <label class="text-label-sm tone-tertiary" for="f-hs-encontrar">HS Etapa Encontrar</label>
+                <select id="f-hs-encontrar" class="arrow-input__control">
+                  <option value="">Todos</option>
+                  <option value="critico">Crítico (&lt; 40)</option>
+                  <option value="atencao">Atenção (40–59)</option>
+                  <option value="bom">Bom (60–79)</option>
+                  <option value="excelente">Excelente (≥ 80)</option>
+                </select>
+              </div>
+              <div class="field">
+                <label class="text-label-sm tone-tertiary" for="f-hs-cadastrar">HS Etapa Cadastrar</label>
+                <select id="f-hs-cadastrar" class="arrow-input__control">
+                  <option value="">Todos</option>
+                  <option value="critico">Crítico (&lt; 40)</option>
+                  <option value="atencao">Atenção (40–59)</option>
+                  <option value="bom">Bom (60–79)</option>
+                  <option value="excelente">Excelente (≥ 80)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="filter-group" style="padding-top:0">
+            <div class="filter-group__fields">
+              <div class="field">
+                <label class="text-label-sm tone-tertiary" for="f-hs-disputar">HS Etapa Disputar</label>
+                <select id="f-hs-disputar" class="arrow-input__control">
+                  <option value="">Todos</option>
+                  <option value="critico">Crítico (&lt; 40)</option>
+                  <option value="atencao">Atenção (40–59)</option>
+                  <option value="bom">Bom (60–79)</option>
+                  <option value="excelente">Excelente (≥ 80)</option>
+                </select>
+              </div>
+              <div class="field">
+                <label class="text-label-sm tone-tertiary" for="f-hs-monitorar">HS Etapa Monitorar</label>
+                <select id="f-hs-monitorar" class="arrow-input__control">
+                  <option value="">Todos</option>
+                  <option value="critico">Crítico (&lt; 40)</option>
+                  <option value="atencao">Atenção (40–59)</option>
+                  <option value="bom">Bom (60–79)</option>
+                  <option value="excelente">Excelente (≥ 80)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="filter-group" style="padding-top:0">
+            <div class="filter-group__fields">
+              <div class="field">
+                <label class="text-label-sm tone-tertiary" for="f-nps">NPS</label>
+                <select id="f-nps" class="arrow-input__control">
+                  <option value="">Todos</option>
+                  <option value="promotor">Promotor (9–10)</option>
+                  <option value="neutro">Neutro (7–8)</option>
+                  <option value="detrator">Detrator (0–6)</option>
+                </select>
+              </div>
+              <div class="field">
+                <label class="text-label-sm tone-tertiary" id="lbl-mes-reajuste">Mês de reajuste</label>
+                <div class="multiselect" data-id="mesReajuste">
+                  <button type="button" class="arrow-input__control multiselect__trigger" aria-haspopup="listbox" aria-labelledby="lbl-mes-reajuste">
+                    <span class="multiselect__trigger-text">Todos</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="icon multiselect__chev" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+                  </button>
+                  <div class="multiselect__menu" hidden></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <div class="charts-grid">
+      <div class="chart-card">
+        <span class="text-heading-sm">Tipo de oportunidade</span>
+        <span class="text-label-sm tone-tertiary" style="display:block;margin-top:2px">Distribuição dos clientes filtrados · clique numa fatia para filtrar</span>
+        <div class="chart-card__body"><canvas id="chart-tipo-oportunidade"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <span class="text-heading-sm">Clientes por plano</span>
+        <span class="text-label-sm tone-tertiary" style="display:block;margin-top:2px">Clique numa fatia para filtrar</span>
+        <div class="chart-card__body"><canvas id="chart-plano"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <span class="text-heading-sm">Clientes por engajador</span>
+        <span class="text-label-sm tone-tertiary" style="display:block;margin-top:2px">Clique numa fatia para filtrar</span>
+        <div class="chart-card__body"><canvas id="chart-engajador-pizza"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <span class="text-heading-sm">Adicionais — contratado vs a ofertar</span>
+        <span class="text-label-sm tone-tertiary" style="display:block;margin-top:2px">Por funcionalidade adicional · clique numa barra para filtrar</span>
+        <div class="chart-card__body"><canvas id="chart-adicionais"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <span class="text-heading-sm">Motivo da última expansão</span>
+        <span class="text-label-sm tone-tertiary" style="display:block;margin-top:2px">Clique numa barra para filtrar</span>
+        <div class="chart-card__body"><canvas id="chart-motivo"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <span class="text-heading-sm">Expansão x perda por engajador (R$)</span>
+        <span class="text-label-sm tone-tertiary" style="display:block;margin-top:2px">Clique numa barra para filtrar</span>
+        <div class="chart-card__body"><canvas id="chart-ganho-perda"></canvas></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel__header">
+        <span class="text-heading-sm">Clientes</span>
+        <div class="panel__header-actions">
+          <input id="table-search" class="arrow-input__control panel__search" type="text" placeholder="Buscar por código ou nome">
+          <span class="text-label-sm tone-tertiary" id="table-count"></span>
+          <button class="arrow-btn" data-variant="secondary" data-tone="neutral" data-size="sm" id="export-csv">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="icon" aria-hidden="true"><path d="M12 3v12"></path><path d="M7 10l5 5 5-5"></path><path d="M4 19h16"></path></svg>
+            <span class="arrow-btn__label">Exportar CSV</span>
+          </button>
+        </div>
+      </div>
+      <span class="text-label-sm tone-tertiary table-scroll-hint">Role a tabela horizontalmente para ver todas as colunas →</span>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th class="text-label-sm">Código</th>
+              <th class="text-label-sm">Cliente</th>
+              <th class="text-label-sm">Plano</th>
+              <th class="text-label-sm">Engajador</th>
+              <th class="text-label-sm">Health score</th>
+              <th class="text-label-sm">Oportunidade</th>
+              <th class="text-label-sm">Saving</th>
+              <th class="text-label-sm">Churn 12m</th>
+              <th class="text-label-sm">Upsell 12m</th>
+            </tr>
+          </thead>
+          <tbody id="table-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <p class="text-label-sm tone-tertiary footer-note">Matriz de Oportunidades Effecti · dados vindos da planilha "compilado" via n8n.</p>
+
+  </div>
+</section>
+
+</main>
+</div>
+<script>
+const ADICIONAIS_LABELS = {intencaoRecurso:"Intenção de Recurso",monitoramentoLote:"Monitoramento Seção de Lote",diligencia:"Diligência",apiIntegracao:"API de Integração",aime:"AIME",analiseMercado:"Análise de Mercado"};
+const ADICIONAIS_SHORT_LABELS = {intencaoRecurso:"Int.Recurso",monitoramentoLote:"Mon.Lote",diligencia:"Diligência",apiIntegracao:"API Integr.",aime:"AIME",analiseMercado:"An.Mercado"};
+
+const API_URL = "https://effecti.app.n8n.cloud/webhook/matriz-oportunidades";
+
+let CLIENTES = [];
+
+function isSim(v){ return String(v||'').trim().toLowerCase().indexOf('sim')===0; }
+function numOrZero(v){ const n = Number(v); return isNaN(n) ? 0 : n; }
+
+function normalizeAccents(v){
+  return String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim().toLowerCase();
+}
+
+function classifyAdicionalStatus(v){
+  const n = normalizeAccents(v);
+  if(n.indexOf('ofert')!==-1) return 'Ofertar';
+  if(n.indexOf('migra')!==-1) return 'Migração';
+  if(n.indexOf('tem')!==-1 || n.indexOf('contratad')!==-1 || n.indexOf('possui')!==-1) return 'Já tem';
+  return String(v||'').trim();
+}
+
+function normalizeClient(raw){
+  const st = function(v){ return String(v||'').trim(); };
+  return {
+    codigo: st(raw['Código Cliente']),
+    nome: st(raw['Nome Cliente']),
+    plano: st(raw['Plano Padronizado']),
+    engajador: st(raw['Engajador']),
+    statusMensalidade: st(raw['Status Mensalidade']),
+    mesReajuste: st(raw['Mês Reajuste']),
+    hsEncontrar: numOrZero(raw['HS Etapa Encontrar']),
+    hsCadastrar: numOrZero(raw['HS Etapa Cadastrar']),
+    hsDisputar: numOrZero(raw['HS Etapa Disputar']),
+    hsMonitorar: numOrZero(raw['HS Etapa Monitorar']),
+    hsFinanceiro: numOrZero(raw['HS Financeiro']),
+    chs: numOrZero(raw['Customer Health Score']),
+    nps: (raw['NPS']==='-'||raw['NPS']===''||raw['NPS']==null) ? null : numOrZero(raw['NPS']),
+    pctComprasNet: numOrZero(raw['% Compras Net']),
+    adicionais: {
+      intencaoRecurso: classifyAdicionalStatus(raw['Status: Intenção de Recurso']),
+      monitoramentoLote: classifyAdicionalStatus(raw['Status: Monitoramento Seção de Lote']),
+      diligencia: classifyAdicionalStatus(raw['Status: Diligência']),
+      apiIntegracao: classifyAdicionalStatus(raw['Status: API de Integração']),
+      aime: classifyAdicionalStatus(raw['Status: AIME']),
+      analiseMercado: classifyAdicionalStatus(raw['Status: Análise de Mercado']),
+    },
+    qtdOfertar: numOrZero(raw['Qtd Adicionais a Ofertar']),
+    qtdJaTem: numOrZero(raw['Qtd Adicionais Contratados']),
+    migracaoPlano: isSim(raw['Oportunidade: Migração de Plano']) ? 'SIM' : 'NÃO',
+    emSaving: isSim(raw['Em Saving em aberto?']) ? 'SIM' : 'NÃO',
+    statusSaving: st(raw['Status Saving']),
+    jaEsteveSaving: isSim(raw['Já esteve em Saving outras vezes ?']) ? 'SIM' : 'NÃO',
+    qtdVezesSaving: numOrZero(raw['Quant vezes em saving']),
+    churn12m: isSim(raw['Teve churn nos ultimos 12 meses ?']) ? 'SIM' : 'NÃO',
+    rsChurn: numOrZero(raw['R$ Churnado']),
+    upsell12m: isSim(raw['Teve UP nos ultimos 12 meses ?']) ? 'SIM' : 'NÃO',
+    rsUpsell: numOrZero(raw['R$ UP']),
+    playbookAtivo: isSim(raw['Playbook de expansão ativo ?']) ? 'SIM' : 'NÃO',
+    tevePlaybookExpansao: isSim(raw['Teve playbook de Expansão?']) ? 'SIM' : 'NÃO',
+    categoriaExpansao: st(raw['Categoria da ultima']),
+    dataUltimoPlaybook: st(raw['Data do ultimo playbook']),
+    mensalidade: numOrZero(raw['R$ Mensalidade']),
+    ltv: numOrZero(raw['R$ LTV']),
+    mau: numOrZero(raw['MAU']),
+    totalLicitacoes: numOrZero(raw['Total Licitações']),
+  };
+}
+function fmtBRL(v){return v.toLocaleString('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0})}
+function fmtInt(v){return v.toLocaleString('pt-BR')}
+function cssVar(name){return getComputedStyle(document.documentElement).getPropertyValue(name).trim()}
+
+function hsTone(chs){
+  if(chs<40) return {label:'Crítico', tone:'error'};
+  if(chs<60) return {label:'Atenção', tone:'warning'};
+  if(chs<80) return {label:'Bom', tone:'accent'};
+  return {label:'Excelente', tone:'success'};
+}
+
+function badge(text, tone, size){
+  size = size || 'sm';
+  return '<span class="arrow-badge" data-tone="'+tone+'" data-variant="soft" data-size="'+size+'" data-shape="pill">'+text+'</span>';
+}
+
+const CHEVRON = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="icon chev" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>';
+
+function uniqueSorted(arr){return Array.from(new Set(arr)).sort((a,b)=>a.localeCompare(b,'pt-BR'))}
+
+function populateSelect(id, values){
+  const sel = document.getElementById(id);
+  sel.innerHTML = '<option value="">Todos</option>' + values.map(v=>'<option value="'+v+'">'+v+'</option>').join('');
+}
+
+function getFilters(){
+  return {
+    plano: MS.plano.getValues(),
+    engajador: MS.engajador.getValues(),
+    codigo: document.getElementById('f-codigo').value.trim(),
+    hs: document.getElementById('f-hs').value,
+    statusMens: document.getElementById('f-status-mens').value,
+    oportunidade: document.getElementById('f-oportunidade').value,
+    qtdOfertar: MS.qtdOfertar.getValues(),
+    saving: document.getElementById('f-saving').value,
+    churn: document.getElementById('f-churn').value,
+    upsell: document.getElementById('f-upsell').value,
+    categoriaExp: MS.categoriaExp.getValues(),
+    hsEncontrar: document.getElementById('f-hs-encontrar').value,
+    hsCadastrar: document.getElementById('f-hs-cadastrar').value,
+    hsDisputar: document.getElementById('f-hs-disputar').value,
+    hsMonitorar: document.getElementById('f-hs-monitorar').value,
+    nps: document.getElementById('f-nps').value,
+    mesReajuste: MS.mesReajuste.getValues(),
+  };
+}
+
+function matchesHS(chs, bucket){
+  if(!bucket) return true;
+  if(bucket==='critico') return chs<40;
+  if(bucket==='atencao') return chs>=40 && chs<60;
+  if(bucket==='bom') return chs>=60 && chs<80;
+  if(bucket==='excelente') return chs>=80;
+  return true;
+}
+
+function matchesNPS(nps, bucket){
+  if(!bucket) return true;
+  if(nps===null || nps===undefined) return false;
+  if(bucket==='promotor') return nps>=9;
+  if(bucket==='neutro') return nps>=7 && nps<9;
+  if(bucket==='detrator') return nps<7;
+  return true;
+}
+
+function isInadimplenteOuBaixoUso(c){
+  const inadimplente = normalizeAccents(c.statusMensalidade).indexOf('inadimplent') !== -1;
+  const baixoUso = c.mau===0 || c.totalLicitacoes<=5 || c.chs<30;
+  return inadimplente || baixoUso;
+}
+
+function opportunityType(c){
+  if(c.emSaving==='SIM') return 'Em Saving';
+  if(isInadimplenteOuBaixoUso(c)) return 'Sem oportunidade';
+  if(c.migracaoPlano==='SIM') return 'Migração de Plano';
+  if(c.qtdOfertar>0) return 'Venda de Adicional';
+  return 'Sem oportunidade';
+}
+
+let quickFilter = null;
+
+function setQuickFilter(label, test){
+  quickFilter = { label, test };
+  document.getElementById('quick-filter-chip').hidden = false;
+  document.getElementById('quick-filter-text').textContent = label;
+  applyFilters();
+}
+
+function clearQuickFilter(){
+  quickFilter = null;
+  document.getElementById('quick-filter-chip').hidden = true;
+  applyFilters();
+}
+
+function toggleQuickFilter(label, test){
+  if(quickFilter && quickFilter.label === label){ clearQuickFilter(); }
+  else { setQuickFilter(label, test); }
+}
+
+function createMultiSelect(id, emptyLabel){
+  const root = document.querySelector('.multiselect[data-id="'+id+'"]');
+  const trigger = root.querySelector('.multiselect__trigger');
+  const triggerText = root.querySelector('.multiselect__trigger-text');
+  const menu = root.querySelector('.multiselect__menu');
+  let options = [];
+  let selected = new Set();
+
+  function updateTriggerText(){
+    if(selected.size===0) triggerText.textContent = emptyLabel;
+    else if(selected.size===1) triggerText.textContent = Array.from(selected)[0];
+    else triggerText.textContent = selected.size+' selecionados';
+  }
+
+  function renderMenu(){
+    if(!options.length){
+      menu.innerHTML = '<span class="text-label-sm tone-tertiary">Nenhuma opção disponível</span>';
+      return;
+    }
+    const items = options.map((opt,i)=>{
+      const checked = selected.has(opt);
+      const checkSvg = checked ? '<svg class="arrow-checkbox__check" viewBox="0 0 16 16" width="10" height="10" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3.5 3.5L13 4"></path></svg>' : '';
+      return '<label class="arrow-checkbox multiselect__item" data-size="sm">'+
+        '<input type="checkbox" class="arrow-checkbox__input" data-idx="'+i+'" '+(checked?'checked':'')+'>'+
+        '<span class="arrow-checkbox__box">'+checkSvg+'</span>'+
+        '<span class="arrow-checkbox__label text-body-sm">'+opt+'</span>'+
+      '</label>';
+    }).join('');
+    menu.innerHTML = items + '<div class="multiselect__footer"><button type="button" class="multiselect__clear text-label-sm" data-action="clear">Limpar seleção</button></div>';
+    menu.querySelectorAll('input[type=checkbox]').forEach(cb=>{
+      cb.addEventListener('change', ()=>{
+        const opt = options[Number(cb.dataset.idx)];
+        if(cb.checked) selected.add(opt); else selected.delete(opt);
+        updateTriggerText();
+        renderMenu();
+        applyFilters();
+      });
+    });
+    const clearBtn = menu.querySelector('[data-action="clear"]');
+    clearBtn.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      selected.clear();
+      updateTriggerText();
+      renderMenu();
+      applyFilters();
+    });
+  }
+
+  trigger.addEventListener('click', (e)=>{
+    e.stopPropagation();
+    const isOpen = !menu.hidden;
+    document.querySelectorAll('.multiselect').forEach(r=>{ r.classList.remove('is-open'); r.querySelector('.multiselect__menu').hidden = true; });
+    if(!isOpen){ menu.hidden = false; root.classList.add('is-open'); }
+  });
+
+  return {
+    setOptions(list){
+      options = list;
+      selected = new Set(Array.from(selected).filter(v=>list.includes(v)));
+      updateTriggerText();
+      renderMenu();
+    },
+    getValues(){ return Array.from(selected); },
+    clear(){ selected.clear(); updateTriggerText(); renderMenu(); },
+    setSingle(value){
+      if(selected.size===1 && selected.has(value)){ selected.clear(); }
+      else { selected = new Set([value]); }
+      updateTriggerText();
+      renderMenu();
+      applyFilters();
+    },
+  };
+}
+
+document.addEventListener('click', (e)=>{
+  document.querySelectorAll('.multiselect').forEach(root=>{
+    if(!root.contains(e.target)){
+      root.classList.remove('is-open');
+      const m = root.querySelector('.multiselect__menu');
+      if(m) m.hidden = true;
+    }
+  });
+});
+
+const MS = {
+  plano: createMultiSelect('plano', 'Todos'),
+  engajador: createMultiSelect('engajador', 'Todos'),
+  categoriaExp: createMultiSelect('categoriaExp', 'Todos'),
+  mesReajuste: createMultiSelect('mesReajuste', 'Todos'),
+  qtdOfertar: createMultiSelect('qtdOfertar', 'Todas'),
+};
+
+document.getElementById('quick-filter-clear').addEventListener('click', clearQuickFilter);
+
+function getFilteredClients(){
+  const f = getFilters();
+  return CLIENTES.filter(c=>{
+    if(f.plano.length && !f.plano.includes(c.plano)) return false;
+    if(f.engajador.length && !f.engajador.includes(c.engajador)) return false;
+    if(f.codigo && String(c.codigo).indexOf(f.codigo)===-1) return false;
+    if(!matchesHS(c.chs, f.hs)) return false;
+    if(f.statusMens && c.statusMensalidade!==f.statusMens) return false;
+    if(f.oportunidade==='ofertar' && c.qtdOfertar<=0) return false;
+    if(f.oportunidade==='migracao' && c.migracaoPlano!=='SIM') return false;
+    if(f.qtdOfertar.length && !f.qtdOfertar.includes(String(c.qtdOfertar))) return false;
+    if(f.saving && (f.saving==='sim' ? c.emSaving!=='SIM' : c.emSaving==='SIM')) return false;
+    if(f.churn && (f.churn==='sim' ? c.churn12m!=='SIM' : c.churn12m==='SIM')) return false;
+    if(f.upsell && (f.upsell==='sim' ? c.upsell12m!=='SIM' : c.upsell12m==='SIM')) return false;
+    if(f.categoriaExp.length && !f.categoriaExp.includes(c.categoriaExpansao)) return false;
+    if(!matchesHS(c.hsEncontrar, f.hsEncontrar)) return false;
+    if(!matchesHS(c.hsCadastrar, f.hsCadastrar)) return false;
+    if(!matchesHS(c.hsDisputar, f.hsDisputar)) return false;
+    if(!matchesHS(c.hsMonitorar, f.hsMonitorar)) return false;
+    if(!matchesNPS(c.nps, f.nps)) return false;
+    if(f.mesReajuste.length && !f.mesReajuste.includes(c.mesReajuste)) return false;
+    if(quickFilter && !quickFilter.test(c)) return false;
+    return true;
+  });
+}
+
+function renderKPIs(list){
+  const total = list.length;
+  const receita = list.reduce((s,c)=>s+c.mensalidade,0);
+  const ltv = list.reduce((s,c)=>s+c.ltv,0);
+  const saving = list.filter(c=>c.emSaving==='SIM').length;
+  const migracao = list.filter(c=>c.migracaoPlano==='SIM').length;
+  const churnClientes = list.filter(c=>c.churn12m==='SIM');
+  const rsChurn = churnClientes.reduce((s,c)=>s+c.rsChurn,0);
+  const upsellClientes = list.filter(c=>c.upsell12m==='SIM');
+  const rsUpsell = upsellClientes.reduce((s,c)=>s+c.rsUpsell,0);
+  const playbooks = list.filter(c=>c.playbookAtivo==='SIM').length;
+  const saldo = rsUpsell - rsChurn;
+
+  const cards = [
+    {label:'Clientes ativos', value:fmtInt(total), hint:'na seleção atual', tone:'tone-secondary'},
+    {label:'Receita mensal', value:fmtBRL(receita), hint:'soma das mensalidades', tone:'tone-secondary'},
+    {label:'LTV total', value:fmtBRL(ltv), hint:'soma do LTV', tone:'tone-secondary'},
+    {label:'Em saving', value:fmtInt(saving), hint:'clientes em retenção', tone:'tone-secondary'},
+    {label:'Migração de plano', value:fmtInt(migracao), hint:'oportunidades SIM', tone:'tone-premium'},
+    {label:'Churn 12 meses', value:fmtInt(churnClientes.length), hint:fmtBRL(rsChurn)+' churnado', tone:'tone-error'},
+    {label:'Upsell 12 meses', value:fmtInt(upsellClientes.length), hint:fmtBRL(rsUpsell)+' vendidos', tone:'tone-success'},
+    {label:'Playbooks de expansão ativos', value:fmtInt(playbooks), hint:'em andamento', tone:'tone-secondary'},
+    {label:'Saldo expansão x perda', value:fmtBRL(saldo), hint: saldo>=0 ? 'crescimento líquido' : 'perda líquida', tone: saldo>=0 ? 'tone-success' : 'tone-error'},
+  ];
+
+  document.getElementById('kpi-grid').innerHTML = cards.map(c=>
+    '<div class="kpi-card">'+
+      '<span class="text-label-sm tone-tertiary">'+c.label+'</span>'+
+      '<div class="text-heading-lg kpi-card__value">'+c.value+'</div>'+
+      '<span class="text-body-xs '+c.tone+' kpi-card__hint">'+c.hint+'</span>'+
+    '</div>'
+  ).join('');
+}
+
+function oportunidadeBadges(c){
+  const parts = [];
+  if(c.qtdOfertar>0) parts.push(badge(c.qtdOfertar+' a ofertar','success'));
+  if(c.migracaoPlano==='SIM') parts.push(badge('Migração','premium'));
+  if(parts.length===0) parts.push(badge('Nenhuma','neutral'));
+  return parts.join(' ');
+}
+
+function detailRowHTML(c){
+  const adicionaisHTML = Object.keys(ADICIONAIS_LABELS).map(k=>{
+    const v = c.adicionais[k];
+    const tone = v==='Já tem' ? 'neutral' : (v==='Ofertar' ? 'success' : 'premium');
+    return '<div class="text-body-xs tone-secondary">'+ADICIONAIS_LABELS[k]+'<br>'+badge(v,tone)+'</div>';
+  }).join('');
+  return '<tr class="detail-row"><td></td><td colspan="9">'+
+    '<div class="detail-grid">'+
+      '<div class="detail-col"><span class="text-label-sm tone-tertiary">Adicionais</span><div class="detail-grid">'+adicionaisHTML+'</div></div>'+
+      '<div class="detail-col"><span class="text-label-sm tone-tertiary">Saving</span>'+
+        '<span class="text-body-sm">Em aberto: '+badge(c.emSaving,c.emSaving==='SIM'?'warning':'neutral')+'</span>'+
+        '<span class="text-body-sm">Já esteve outras vezes: '+badge(c.jaEsteveSaving,'neutral')+' ('+c.qtdVezesSaving+'x)</span>'+
+      '</div>'+
+      '<div class="detail-col"><span class="text-label-sm tone-tertiary">Churn</span>'+
+        '<span class="text-body-sm">'+badge(c.churn12m,c.churn12m==='SIM'?'error':'neutral')+' · '+fmtBRL(c.rsChurn)+'</span>'+
+      '</div>'+
+      '<div class="detail-col"><span class="text-label-sm tone-tertiary">Upsell / expansão</span>'+
+        '<span class="text-body-sm">Upsell 12m: '+badge(c.upsell12m,c.upsell12m==='SIM'?'success':'neutral')+' · '+fmtBRL(c.rsUpsell)+'</span>'+
+        '<span class="text-body-sm">Playbook ativo: '+badge(c.playbookAtivo,c.playbookAtivo==='SIM'?'warning':'neutral')+'</span>'+
+        (c.tevePlaybookExpansao==='SIM' ? '<span class="text-body-sm">Motivo: '+c.categoriaExpansao+' ('+c.dataUltimoPlaybook+')</span>' : '<span class="text-body-sm tone-tertiary">Sem expansão registrada</span>')+
+      '</div>'+
+    '</div>'+
+  '</td></tr>';
+}
+
+function renderTable(list){
+  document.getElementById('table-count').textContent = fmtInt(list.length)+' de '+fmtInt(CLIENTES.length)+' clientes';
+  const tbody = document.getElementById('table-body');
+  tbody.innerHTML = list.map(c=>{
+    const hs = hsTone(c.chs);
+    return '<tr data-codigo="'+c.codigo+'">'+
+      '<td>'+CHEVRON+'</td>'+
+      '<td class="text-body-sm">'+c.codigo+'</td>'+
+      '<td class="text-body-sm">'+c.nome+'</td>'+
+      '<td class="text-body-sm">'+c.plano+'</td>'+
+      '<td class="text-body-sm">'+c.engajador+'</td>'+
+      '<td>'+badge(c.chs+' · '+hs.label, hs.tone)+'</td>'+
+      '<td>'+oportunidadeBadges(c)+'</td>'+
+      '<td>'+badge(c.emSaving, c.emSaving==='SIM'?'warning':'neutral')+'</td>'+
+      '<td>'+badge(c.churn12m, c.churn12m==='SIM'?'error':'neutral')+'</td>'+
+      '<td>'+badge(c.upsell12m, c.upsell12m==='SIM'?'success':'neutral')+'</td>'+
+    '</tr>';
+  }).join('');
+
+  tbody.querySelectorAll('tr').forEach(tr=>{
+    tr.addEventListener('click', ()=>{
+      const codigo = tr.getAttribute('data-codigo');
+      const next = tr.nextElementSibling;
+      const isOpen = next && next.classList.contains('detail-row');
+      tbody.querySelectorAll('tr.detail-row').forEach(r=>r.remove());
+      tbody.querySelectorAll('tr').forEach(r=>r.classList.remove('is-expanded'));
+      if(!isOpen){
+        const c = CLIENTES.find(x=>String(x.codigo)===codigo);
+        tr.insertAdjacentHTML('afterend', detailRowHTML(c));
+        tr.classList.add('is-expanded');
+      }
+    });
+  });
+}
+
+let chartPlano, chartAdicionais, chartMotivo, chartGanhoPerda, chartTipoOportunidade, chartEngajadorPizza;
+function chartColors(){
+  return {
+    grid: cssVar('--color-border-default'),
+    text: cssVar('--color-content-tertiary'),
+    accent: cssVar('--color-action-primary'),
+    neutral: cssVar('--color-surface-raised'),
+    neutralText: cssVar('--color-content-secondary'),
+    success: cssVar('--color-feedback-success'),
+    premium: cssVar('--color-feedback-premium'),
+    error: cssVar('--color-feedback-error'),
+    warning: cssVar('--color-feedback-warning'),
+    badge: cssVar('--color-feedback-badge'),
+  };
+}
+
+function setChartHeight(canvasId, px){
+  document.getElementById(canvasId).parentElement.style.height = px + 'px';
+}
+
+function renderCharts(list){
+  const cols = chartColors();
+  const planoCounts = {};
+  list.forEach(c=>{planoCounts[c.plano]=(planoCounts[c.plano]||0)+1});
+  const planoLabels = Object.keys(planoCounts);
+  const planoData = Object.values(planoCounts);
+  const palette = [cols.accent, cols.success, cols.premium, cols.error, cols.warning, cols.neutralText, cols.badge, cols.grid];
+
+  const adicionaisKeys = Object.keys(ADICIONAIS_LABELS);
+  const jaTem = adicionaisKeys.map(k=>list.filter(c=>c.adicionais[k]==='Já tem').length);
+  const ofertar = adicionaisKeys.map(k=>list.filter(c=>c.adicionais[k]==='Ofertar').length);
+  const migracao = adicionaisKeys.map(k=>list.filter(c=>c.adicionais[k]==='Migração').length);
+
+  if(chartPlano) chartPlano.destroy();
+  if(chartAdicionais) chartAdicionais.destroy();
+  if(chartMotivo) chartMotivo.destroy();
+  if(chartGanhoPerda) chartGanhoPerda.destroy();
+  if(chartTipoOportunidade) chartTipoOportunidade.destroy();
+  if(chartEngajadorPizza) chartEngajadorPizza.destroy();
+
+  const tipoOrder = ['Migração de Plano','Venda de Adicional','Em Saving','Sem oportunidade'];
+  const tipoCounts = {};
+  tipoOrder.forEach(t=>tipoCounts[t]=0);
+  list.forEach(c=>{ tipoCounts[opportunityType(c)]++; });
+  const tipoPalette = [cols.premium, cols.success, cols.error, cols.neutral];
+
+  chartTipoOportunidade = new Chart(document.getElementById('chart-tipo-oportunidade'), {
+    type:'doughnut',
+    data:{labels:tipoOrder, datasets:[{data:tipoOrder.map(t=>tipoCounts[t]), backgroundColor:tipoPalette, borderWidth:0}]},
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      onHover:(evt,elements)=>{ evt.native.target.style.cursor = elements.length ? 'pointer' : 'default'; },
+      onClick:(evt,elements)=>{
+        if(!elements.length) return;
+        const tipo = tipoOrder[elements[0].index];
+        setTimeout(()=>{
+          toggleQuickFilter('Tipo de oportunidade: '+tipo, (c)=>opportunityType(c)===tipo);
+        }, 0);
+      },
+      plugins:{legend:{position:'bottom', labels:{color:cols.text, font:{family:'Inter', size:12}, padding:16}}}
+    }
+  });
+
+  chartPlano = new Chart(document.getElementById('chart-plano'), {
+    type:'doughnut',
+    data:{labels:planoLabels, datasets:[{data:planoData, backgroundColor:palette, borderWidth:0}]},
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      onHover:(evt,elements)=>{ evt.native.target.style.cursor = elements.length ? 'pointer' : 'default'; },
+      onClick:(evt,elements)=>{
+        if(!elements.length) return;
+        const label = planoLabels[elements[0].index];
+        setTimeout(()=>{ MS.plano.setSingle(label); }, 0);
+      },
+      plugins:{legend:{position:'bottom', labels:{color:cols.text, font:{family:'Inter', size:12}, padding:16}}}
+    }
+  });
+
+  const engajadorCounts = {};
+  list.forEach(c=>{engajadorCounts[c.engajador]=(engajadorCounts[c.engajador]||0)+1});
+  const engajadorPizzaLabels = Object.keys(engajadorCounts);
+  const engajadorPizzaData = Object.values(engajadorCounts);
+
+  chartEngajadorPizza = new Chart(document.getElementById('chart-engajador-pizza'), {
+    type:'doughnut',
+    data:{labels:engajadorPizzaLabels, datasets:[{data:engajadorPizzaData, backgroundColor:palette, borderWidth:0}]},
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      onHover:(evt,elements)=>{ evt.native.target.style.cursor = elements.length ? 'pointer' : 'default'; },
+      onClick:(evt,elements)=>{
+        if(!elements.length) return;
+        const label = engajadorPizzaLabels[elements[0].index];
+        setTimeout(()=>{ MS.engajador.setSingle(label); }, 0);
+      },
+      plugins:{legend:{position:'bottom', labels:{color:cols.text, font:{family:'Inter', size:11}, padding:12}}}
+    }
+  });
+
+  const statusOrder = ['Já tem','Ofertar','Migração'];
+  chartAdicionais = new Chart(document.getElementById('chart-adicionais'), {
+    type:'bar',
+    data:{
+      labels:adicionaisKeys.map(k=>ADICIONAIS_SHORT_LABELS[k]),
+      datasets:[
+        {label:'Já contratado', data:jaTem, backgroundColor:cols.badge},
+        {label:'A ofertar', data:ofertar, backgroundColor:cols.success},
+        {label:'Migração', data:migracao, backgroundColor:cols.premium},
+      ]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      onHover:(evt,elements)=>{ evt.native.target.style.cursor = elements.length ? 'pointer' : 'default'; },
+      onClick:(evt,elements)=>{
+        if(!elements.length) return;
+        const el = elements[0];
+        const key = adicionaisKeys[el.index];
+        const status = statusOrder[el.datasetIndex];
+        setTimeout(()=>{
+          toggleQuickFilter(ADICIONAIS_LABELS[key]+': '+status, (c)=> c.adicionais[key]===status);
+        }, 0);
+      },
+      scales:{
+        x:{ticks:{color:cols.text, font:{family:'Inter', size:11}}, grid:{display:false}},
+        y:{ticks:{color:cols.text, font:{family:'Inter', size:12}}, grid:{color:cols.grid}}
+      },
+      plugins:{legend:{position:'bottom', labels:{color:cols.text, font:{family:'Inter', size:12}, padding:16}}}
+    }
+  });
+
+  const motivoCounts = {};
+  list.forEach(c=>{ if(c.tevePlaybookExpansao==='SIM'){ motivoCounts[c.categoriaExpansao]=(motivoCounts[c.categoriaExpansao]||0)+1; } });
+  const motivoLabels = Object.keys(motivoCounts);
+  const motivoData = Object.values(motivoCounts);
+  setChartHeight('chart-motivo', Math.max(360, motivoLabels.length*36+80));
+
+  chartMotivo = new Chart(document.getElementById('chart-motivo'), {
+    type:'bar',
+    data:{labels:motivoLabels, datasets:[{label:'Clientes', data:motivoData, backgroundColor:cols.accent}]},
+    options:{
+      indexAxis:'y',
+      responsive:true, maintainAspectRatio:false,
+      onHover:(evt,elements)=>{ evt.native.target.style.cursor = elements.length ? 'pointer' : 'default'; },
+      onClick:(evt,elements)=>{
+        if(!elements.length) return;
+        const label = motivoLabels[elements[0].index];
+        setTimeout(()=>{ MS.categoriaExp.setSingle(label); }, 0);
+      },
+      scales:{
+        x:{ticks:{color:cols.text, font:{family:'Inter', size:11}, precision:0}, grid:{color:cols.grid}},
+        y:{ticks:{color:cols.text, font:{family:'Inter', size:12}}, grid:{display:false}}
+      },
+      plugins:{legend:{display:false}}
+    }
+  });
+
+  const engajadores = uniqueSorted(list.map(c=>c.engajador));
+  const upsellPorEngajador = engajadores.map(e=>list.filter(c=>c.engajador===e).reduce((s,c)=>s+c.rsUpsell,0));
+  const churnPorEngajador = engajadores.map(e=>list.filter(c=>c.engajador===e).reduce((s,c)=>s+c.rsChurn,0));
+  setChartHeight('chart-ganho-perda', Math.max(360, engajadores.length*40+80));
+
+  chartGanhoPerda = new Chart(document.getElementById('chart-ganho-perda'), {
+    type:'bar',
+    data:{
+      labels:engajadores,
+      datasets:[
+        {label:'Expansão (R$)', data:upsellPorEngajador, backgroundColor:cols.success},
+        {label:'Perda (R$)', data:churnPorEngajador, backgroundColor:cols.error},
+      ]
+    },
+    options:{
+      indexAxis:'y',
+      responsive:true, maintainAspectRatio:false,
+      onHover:(evt,elements)=>{ evt.native.target.style.cursor = elements.length ? 'pointer' : 'default'; },
+      onClick:(evt,elements)=>{
+        if(!elements.length) return;
+        const label = engajadores[elements[0].index];
+        if(!label || label==='(Nenhum)') return;
+        setTimeout(()=>{ MS.engajador.setSingle(label); }, 0);
+      },
+      scales:{
+        x:{ticks:{color:cols.text, font:{family:'Inter', size:11}, callback:(v)=>fmtBRL(v)}, grid:{color:cols.grid}},
+        y:{ticks:{color:cols.text, font:{family:'Inter', size:12}}, grid:{display:false}}
+      },
+      plugins:{legend:{position:'bottom', labels:{color:cols.text, font:{family:'Inter', size:12}, padding:16}}}
+    }
+  });
+}
+
+function getSearchedClients(list){
+  const q = document.getElementById('table-search').value.trim().toLowerCase();
+  if(!q) return list;
+  return list.filter(c => String(c.codigo).toLowerCase().includes(q) || c.nome.toLowerCase().includes(q));
+}
+
+function csvEscape(v){
+  const s = (v===null || v===undefined) ? '' : String(v);
+  if(/[";\n]/.test(s)) return '"'+s.replace(/"/g,'""')+'"';
+  return s;
+}
+
+function buildCSV(list){
+  const headers = [
+    'Código Cliente','Nome Cliente','Plano','Engajador','Status Mensalidade','Mês Reajuste',
+    'Customer Health Score','HS Encontrar','HS Cadastrar','HS Disputar','HS Monitorar','NPS','% Compras Net',
+    'MAU','Total Licitações','R$ Mensalidade','R$ LTV',
+    'Status: Intenção de Recurso','Status: Monitoramento Seção de Lote','Status: Diligência','Status: API de Integração','Status: AIME','Status: Análise de Mercado',
+    'Qtd Adicionais Contratados','Qtd Adicionais a Ofertar','Oportunidade: Migração de Plano',
+    'Em Saving','Status Saving','Já esteve em Saving','Qtd Vezes em Saving',
+    'Churn 12m','R$ Churnado','Upsell 12m','R$ Upsell','Playbook Ativo','Teve Playbook Expansão','Categoria Expansão','Data Último Playbook',
+    'Tipo de Oportunidade'
+  ];
+  const rows = list.map(c => [
+    c.codigo, c.nome, c.plano, c.engajador, c.statusMensalidade, c.mesReajuste,
+    c.chs, c.hsEncontrar, c.hsCadastrar, c.hsDisputar, c.hsMonitorar, c.nps===null?'':c.nps, c.pctComprasNet,
+    c.mau, c.totalLicitacoes, c.mensalidade, c.ltv,
+    c.adicionais.intencaoRecurso, c.adicionais.monitoramentoLote, c.adicionais.diligencia, c.adicionais.apiIntegracao, c.adicionais.aime, c.adicionais.analiseMercado,
+    c.qtdJaTem, c.qtdOfertar, c.migracaoPlano,
+    c.emSaving, c.statusSaving, c.jaEsteveSaving, c.qtdVezesSaving,
+    c.churn12m, c.rsChurn, c.upsell12m, c.rsUpsell, c.playbookAtivo, c.tevePlaybookExpansao, c.categoriaExpansao, c.dataUltimoPlaybook,
+    opportunityType(c)
+  ]);
+  const lines = [headers.map(csvEscape).join(';')].concat(rows.map(r=>r.map(csvEscape).join(';')));
+  return '\uFEFF' + lines.join('\r\n');
+}
+
+function exportCSV(){
+  const list = getSearchedClients(getFilteredClients());
+  if(!list.length){ alert('Nenhum cliente para exportar com os filtros atuais.'); return; }
+  const csv = buildCSV(list);
+  const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  const stamp = new Date().toISOString().slice(0,16).replace(/[-:T]/g,'');
+  a.href = url;
+  a.download = 'matriz_oportunidades_'+stamp+'.csv';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+document.getElementById('export-csv').addEventListener('click', exportCSV);
+
+function applyFilters(){
+  try{
+    const list = getFilteredClients();
+    renderKPIs(list);
+    renderCharts(list);
+    renderTable(getSearchedClients(list));
+    document.getElementById('filter-count').textContent = fmtInt(list.length)+' resultado(s)';
+  }catch(err){
+    console.error('Erro ao aplicar filtros:', err);
+  }
+}
+
+document.getElementById('table-search').addEventListener('input', ()=>{
+  renderTable(getSearchedClients(getFilteredClients()));
+});
+
+const ALL_FILTER_IDS = ['f-codigo','f-hs','f-status-mens','f-oportunidade','f-saving','f-churn','f-upsell','f-hs-encontrar','f-hs-cadastrar','f-hs-disputar','f-hs-monitorar','f-nps'];
+const MESES_ORDEM = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+
+function initFilters(){
+  MS.plano.setOptions(uniqueSorted(CLIENTES.map(c=>c.plano)));
+  MS.engajador.setOptions(uniqueSorted(CLIENTES.map(c=>c.engajador)));
+  populateSelect('f-status-mens', uniqueSorted(CLIENTES.map(c=>c.statusMensalidade)));
+  MS.categoriaExp.setOptions(uniqueSorted(CLIENTES.filter(c=>c.categoriaExpansao).map(c=>c.categoriaExpansao)));
+  MS.mesReajuste.setOptions(MESES_ORDEM.filter(m=>CLIENTES.some(c=>c.mesReajuste===m)));
+  MS.qtdOfertar.setOptions(['0','1','2','3','4','5','6']);
+  ALL_FILTER_IDS.forEach(id=>{
+    document.getElementById(id).addEventListener('input', applyFilters);
+    document.getElementById(id).addEventListener('change', applyFilters);
+  });
+  document.getElementById('clear-filters').addEventListener('click', ()=>{
+    ALL_FILTER_IDS.forEach(id=>{
+      document.getElementById(id).value = '';
+    });
+    MS.plano.clear();
+    MS.engajador.clear();
+    MS.categoriaExp.clear();
+    MS.mesReajuste.clear();
+    MS.qtdOfertar.clear();
+    quickFilter = null;
+    document.getElementById('quick-filter-chip').hidden = true;
+    applyFilters();
+  });
+}
+
+document.getElementById('theme-toggle').addEventListener('change', (e)=>{
+  document.documentElement.classList.toggle('dark', e.target.checked);
+  if(CLIENTES.length) applyFilters();
+});
+
+function showLoginError(msg){
+  const err = document.getElementById('login-error');
+  err.textContent = msg;
+  err.hidden = false;
+  document.getElementById('token-wrap').setAttribute('data-error', '');
+}
+
+function clearLoginError(){
+  document.getElementById('login-error').hidden = true;
+  document.getElementById('token-wrap').removeAttribute('data-error');
+}
+
+function formatSyncTime(iso){
+  try{
+    const d = new Date(iso);
+    return 'Dados sincronizados às ' + d.toLocaleTimeString('pt-BR', {hour:'2-digit', minute:'2-digit'});
+  }catch(e){ return 'Dados sincronizados'; }
+}
+
+function buildUserInfoText(user){
+  if(!user) return '';
+  const nome = user.name || user.email || '';
+  return user.scope ? (nome + ' · ' + user.scope) : nome;
+}
+
+function setLoginLoading(loading){
+  document.getElementById('login-btn').disabled = loading;
+  document.getElementById('login-btn').setAttribute('aria-busy', loading ? 'true' : 'false');
+  document.getElementById('login-spinner').hidden = !loading;
+  document.getElementById('login-label').textContent = loading ? 'Entrando…' : 'Entrar';
+}
+
+document.getElementById('login-form').addEventListener('submit', (e)=>{
+  e.preventDefault();
+  clearLoginError();
+  const token = document.getElementById('token').value.trim();
+  if(!token){ showLoginError('Cole seu token de acesso.'); return; }
+  if(API_URL.indexOf('COLOQUE_AQUI') !== -1){
+    showLoginError('API_URL ainda não configurada neste arquivo. Cole a URL do webhook do n8n.');
+    return;
+  }
+  setLoginLoading(true);
+  fetch(API_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'text/plain;charset=utf-8',
+      'X-Api-Token': token
+    },
+    body: JSON.stringify({})
+  })
+  .then(r=>r.json())
+  .then(json=>{
+    setLoginLoading(false);
+    if(!json.ok){
+      showLoginError(json.error || 'Token inválido.');
+      return;
+    }
+    CLIENTES = (json.data || []).map(normalizeClient);
+    document.getElementById('login-screen').hidden = true;
+    document.getElementById('dashboard-screen').hidden = false;
+    document.getElementById('logout-btn').hidden = false;
+    document.getElementById('sync-status').hidden = false;
+    document.getElementById('sync-status-text').textContent = formatSyncTime(json.updatedAt);
+    const userInfo = document.getElementById('user-info');
+    userInfo.hidden = false;
+    document.getElementById('user-info-text').textContent = buildUserInfoText(json.user);
+    document.getElementById('token').value = '';
+    initFilters();
+    applyFilters();
+  })
+  .catch(()=>{
+    setLoginLoading(false);
+    showLoginError('Não foi possível conectar ao servidor. Verifique sua conexão e tente novamente.');
+  });
+});
+
+document.getElementById('logout-btn').addEventListener('click', ()=>{
+  document.getElementById('dashboard-screen').hidden = true;
+  document.getElementById('login-screen').hidden = false;
+  document.getElementById('logout-btn').hidden = true;
+  document.getElementById('sync-status').hidden = true;
+  document.getElementById('user-info').hidden = true;
+  clearLoginError();
+  CLIENTES = [];
+});
+</script>
+</body></html>
