@@ -241,14 +241,14 @@ table.data-table tbody tr, .chev { transition-duration:0ms }
           <span class="text-label-md tone-secondary filter-group__title">Saúde &amp; engajamento</span>
           <div class="filter-group__fields">
             <div class="field">
-              <label class="text-label-sm tone-tertiary" for="f-hs">Customer Health Score</label>
-              <select id="f-hs" class="arrow-input__control">
-                <option value="">Todos</option>
-                <option value="critico">Crítico (&lt; 40)</option>
-                <option value="atencao">Atenção (40–59)</option>
-                <option value="bom">Bom (60–79)</option>
-                <option value="excelente">Excelente (≥ 80)</option>
-              </select>
+              <label class="text-label-sm tone-tertiary" id="lbl-hs">Customer Health Score</label>
+              <div class="multiselect" data-id="hs">
+                <button type="button" class="arrow-input__control multiselect__trigger" aria-haspopup="listbox" aria-labelledby="lbl-hs">
+                  <span class="multiselect__trigger-text">Todos</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="icon multiselect__chev" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+                </button>
+                <div class="multiselect__menu" hidden></div>
+              </div>
             </div>
             <div class="field">
               <label class="text-label-sm tone-tertiary" for="f-status-mens">Status mensalidade</label>
@@ -286,6 +286,14 @@ table.data-table tbody tr, .chev { transition-duration:0ms }
                 <option value="nao">Não</option>
               </select>
             </div>
+            <div class="field">
+              <label class="text-label-sm tone-tertiary" for="f-migracao">Pode migrar de plano</label>
+              <select id="f-migracao" class="arrow-input__control">
+                <option value="">Todos</option>
+                <option value="sim">Sim</option>
+                <option value="nao">Não</option>
+              </select>
+            </div>
           </div>
         </div>
 
@@ -293,20 +301,24 @@ table.data-table tbody tr, .chev { transition-duration:0ms }
           <span class="text-label-md tone-secondary filter-group__title">Churn, expansão &amp; upsell</span>
           <div class="filter-group__fields">
             <div class="field">
-              <label class="text-label-sm tone-tertiary" for="f-churn">Churn nos últimos 12 meses</label>
-              <select id="f-churn" class="arrow-input__control">
-                <option value="">Todos</option>
-                <option value="sim">Sim</option>
-                <option value="nao">Não</option>
-              </select>
+              <label class="text-label-sm tone-tertiary" id="lbl-churn-quando">Quando teve churn</label>
+              <div class="multiselect" data-id="churnQuando">
+                <button type="button" class="arrow-input__control multiselect__trigger" aria-haspopup="listbox" aria-labelledby="lbl-churn-quando">
+                  <span class="multiselect__trigger-text">Todos</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="icon multiselect__chev" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+                </button>
+                <div class="multiselect__menu" hidden></div>
+              </div>
             </div>
             <div class="field">
-              <label class="text-label-sm tone-tertiary" for="f-upsell">Upsell nos últimos 12 meses</label>
-              <select id="f-upsell" class="arrow-input__control">
-                <option value="">Todos</option>
-                <option value="sim">Sim</option>
-                <option value="nao">Não</option>
-              </select>
+              <label class="text-label-sm tone-tertiary" id="lbl-upsell-quando">Quando teve upsell</label>
+              <div class="multiselect" data-id="upsellQuando">
+                <button type="button" class="arrow-input__control multiselect__trigger" aria-haspopup="listbox" aria-labelledby="lbl-upsell-quando">
+                  <span class="multiselect__trigger-text">Todos</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="icon multiselect__chev" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+                </button>
+                <div class="multiselect__menu" hidden></div>
+              </div>
             </div>
             <div class="field">
               <label class="text-label-sm tone-tertiary" id="lbl-categoria-exp">Motivo da última expansão</label>
@@ -329,48 +341,48 @@ table.data-table tbody tr, .chev { transition-duration:0ms }
           <div class="filter-group" style="padding-top:0">
             <div class="filter-group__fields">
               <div class="field">
-                <label class="text-label-sm tone-tertiary" for="f-hs-encontrar">HS Etapa Encontrar</label>
-                <select id="f-hs-encontrar" class="arrow-input__control">
-                  <option value="">Todos</option>
-                  <option value="critico">Crítico (&lt; 40)</option>
-                  <option value="atencao">Atenção (40–59)</option>
-                  <option value="bom">Bom (60–79)</option>
-                  <option value="excelente">Excelente (≥ 80)</option>
-                </select>
+                <label class="text-label-sm tone-tertiary" id="lbl-hs-encontrar">HS Etapa Encontrar</label>
+                <div class="multiselect" data-id="hsEncontrar">
+                  <button type="button" class="arrow-input__control multiselect__trigger" aria-haspopup="listbox" aria-labelledby="lbl-hs-encontrar">
+                    <span class="multiselect__trigger-text">Todos</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="icon multiselect__chev" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+                  </button>
+                  <div class="multiselect__menu" hidden></div>
+                </div>
               </div>
               <div class="field">
-                <label class="text-label-sm tone-tertiary" for="f-hs-cadastrar">HS Etapa Cadastrar</label>
-                <select id="f-hs-cadastrar" class="arrow-input__control">
-                  <option value="">Todos</option>
-                  <option value="critico">Crítico (&lt; 40)</option>
-                  <option value="atencao">Atenção (40–59)</option>
-                  <option value="bom">Bom (60–79)</option>
-                  <option value="excelente">Excelente (≥ 80)</option>
-                </select>
+                <label class="text-label-sm tone-tertiary" id="lbl-hs-cadastrar">HS Etapa Cadastrar</label>
+                <div class="multiselect" data-id="hsCadastrar">
+                  <button type="button" class="arrow-input__control multiselect__trigger" aria-haspopup="listbox" aria-labelledby="lbl-hs-cadastrar">
+                    <span class="multiselect__trigger-text">Todos</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="icon multiselect__chev" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+                  </button>
+                  <div class="multiselect__menu" hidden></div>
+                </div>
               </div>
             </div>
           </div>
           <div class="filter-group" style="padding-top:0">
             <div class="filter-group__fields">
               <div class="field">
-                <label class="text-label-sm tone-tertiary" for="f-hs-disputar">HS Etapa Disputar</label>
-                <select id="f-hs-disputar" class="arrow-input__control">
-                  <option value="">Todos</option>
-                  <option value="critico">Crítico (&lt; 40)</option>
-                  <option value="atencao">Atenção (40–59)</option>
-                  <option value="bom">Bom (60–79)</option>
-                  <option value="excelente">Excelente (≥ 80)</option>
-                </select>
+                <label class="text-label-sm tone-tertiary" id="lbl-hs-disputar">HS Etapa Disputar</label>
+                <div class="multiselect" data-id="hsDisputar">
+                  <button type="button" class="arrow-input__control multiselect__trigger" aria-haspopup="listbox" aria-labelledby="lbl-hs-disputar">
+                    <span class="multiselect__trigger-text">Todos</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="icon multiselect__chev" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+                  </button>
+                  <div class="multiselect__menu" hidden></div>
+                </div>
               </div>
               <div class="field">
-                <label class="text-label-sm tone-tertiary" for="f-hs-monitorar">HS Etapa Monitorar</label>
-                <select id="f-hs-monitorar" class="arrow-input__control">
-                  <option value="">Todos</option>
-                  <option value="critico">Crítico (&lt; 40)</option>
-                  <option value="atencao">Atenção (40–59)</option>
-                  <option value="bom">Bom (60–79)</option>
-                  <option value="excelente">Excelente (≥ 80)</option>
-                </select>
+                <label class="text-label-sm tone-tertiary" id="lbl-hs-monitorar">HS Etapa Monitorar</label>
+                <div class="multiselect" data-id="hsMonitorar">
+                  <button type="button" class="arrow-input__control multiselect__trigger" aria-haspopup="listbox" aria-labelledby="lbl-hs-monitorar">
+                    <span class="multiselect__trigger-text">Todos</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="icon multiselect__chev" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+                  </button>
+                  <div class="multiselect__menu" hidden></div>
+                </div>
               </div>
             </div>
           </div>
@@ -485,6 +497,11 @@ let CLIENTES = [];
 
 function isSim(v){ return String(v||'').trim().toLowerCase().indexOf('sim')===0; }
 function numOrZero(v){ const n = Number(v); return isNaN(n) ? 0 : n; }
+function numOrNull(v){
+  if(v===null || v===undefined || String(v).trim()==='') return null;
+  const n = Number(v);
+  return isNaN(n) ? null : n;
+}
 
 function normalizeAccents(v){
   return String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim().toLowerCase();
@@ -498,12 +515,30 @@ function classifyAdicionalStatus(v){
   return String(v||'').trim();
 }
 
+const ENTERPRISE_ELIGIBLE = ['apiIntegracao','aime','analiseMercado'];
+
+function planoEhForaDoEscopo(plano){
+  const n = normalizeAccents(plano);
+  return n.indexOf('fora do escopo')!==-1 || n.indexOf('flex')!==-1 || n.indexOf('lite')!==-1 || n.indexOf('dispensa')!==-1;
+}
+
+function planoEhEnterprise(plano){
+  return normalizeAccents(plano).indexOf('enterprise')!==-1;
+}
+
+function classifyAdicionalForClient(plano, key, rawStatus){
+  if(planoEhForaDoEscopo(plano)) return 'Migração';
+  if(planoEhEnterprise(plano) && ENTERPRISE_ELIGIBLE.indexOf(key)===-1) return 'Migração';
+  return classifyAdicionalStatus(rawStatus);
+}
+
 function normalizeClient(raw){
   const st = function(v){ return String(v||'').trim(); };
+  const planoStd = st(raw['Plano Padronizado']);
   return {
     codigo: st(raw['Código Cliente']),
     nome: st(raw['Nome Cliente']),
-    plano: st(raw['Plano Padronizado']),
+    plano: planoStd,
     engajador: st(raw['Engajador']),
     statusMensalidade: st(raw['Status Mensalidade']),
     mesReajuste: st(raw['Mês Reajuste']),
@@ -516,12 +551,12 @@ function normalizeClient(raw){
     nps: (raw['NPS']==='-'||raw['NPS']===''||raw['NPS']==null) ? null : numOrZero(raw['NPS']),
     pctComprasNet: numOrZero(raw['% Compras Net']),
     adicionais: {
-      intencaoRecurso: classifyAdicionalStatus(raw['Status: Intenção de Recurso']),
-      monitoramentoLote: classifyAdicionalStatus(raw['Status: Monitoramento Seção de Lote']),
-      diligencia: classifyAdicionalStatus(raw['Status: Diligência']),
-      apiIntegracao: classifyAdicionalStatus(raw['Status: API de Integração']),
-      aime: classifyAdicionalStatus(raw['Status: AIME']),
-      analiseMercado: classifyAdicionalStatus(raw['Status: Análise de Mercado']),
+      intencaoRecurso: classifyAdicionalForClient(planoStd, 'intencaoRecurso', raw['Status: Intenção de Recurso']),
+      monitoramentoLote: classifyAdicionalForClient(planoStd, 'monitoramentoLote', raw['Status: Monitoramento Seção de Lote']),
+      diligencia: classifyAdicionalForClient(planoStd, 'diligencia', raw['Status: Diligência']),
+      apiIntegracao: classifyAdicionalForClient(planoStd, 'apiIntegracao', raw['Status: API de Integração']),
+      aime: classifyAdicionalForClient(planoStd, 'aime', raw['Status: AIME']),
+      analiseMercado: classifyAdicionalForClient(planoStd, 'analiseMercado', raw['Status: Análise de Mercado']),
     },
     qtdOfertar: numOrZero(raw['Qtd Adicionais a Ofertar']),
     qtdJaTem: numOrZero(raw['Qtd Adicionais Contratados']),
@@ -530,9 +565,9 @@ function normalizeClient(raw){
     statusSaving: st(raw['Status Saving']),
     jaEsteveSaving: isSim(raw['Já esteve em Saving outras vezes ?']) ? 'SIM' : 'NÃO',
     qtdVezesSaving: numOrZero(raw['Quant vezes em saving']),
-    churn12m: isSim(raw['Teve churn nos ultimos 12 meses ?']) ? 'SIM' : 'NÃO',
+    churn12m: st(raw['Teve churn nos ultimos 12 meses ?']),
     rsChurn: numOrZero(raw['R$ Churnado']),
-    upsell12m: isSim(raw['Teve UP nos ultimos 12 meses ?']) ? 'SIM' : 'NÃO',
+    upsell12m: st(raw['Teve UP nos ultimos 12 meses ?']),
     rsUpsell: numOrZero(raw['R$ UP']),
     playbookAtivo: isSim(raw['Playbook de expansão ativo ?']) ? 'SIM' : 'NÃO',
     tevePlaybookExpansao: isSim(raw['Teve playbook de Expansão?']) ? 'SIM' : 'NÃO',
@@ -541,7 +576,7 @@ function normalizeClient(raw){
     mensalidade: numOrZero(raw['R$ Mensalidade']),
     ltv: numOrZero(raw['R$ LTV']),
     mau: numOrZero(raw['MAU']),
-    totalLicitacoes: numOrZero(raw['Total Licitações']),
+    totalLicitacoes: numOrNull(raw['Total Licitações']),
   };
 }
 function fmtBRL(v){return v.toLocaleString('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0})}
@@ -574,30 +609,58 @@ function getFilters(){
     plano: MS.plano.getValues(),
     engajador: MS.engajador.getValues(),
     codigo: document.getElementById('f-codigo').value.trim(),
-    hs: document.getElementById('f-hs').value,
+    hs: MS.hs.getValues(),
     statusMens: document.getElementById('f-status-mens').value,
     oportunidade: document.getElementById('f-oportunidade').value,
     qtdOfertar: MS.qtdOfertar.getValues(),
     saving: document.getElementById('f-saving').value,
-    churn: document.getElementById('f-churn').value,
-    upsell: document.getElementById('f-upsell').value,
+    migracao: document.getElementById('f-migracao').value,
+    churnQuando: MS.churnQuando.getValues(),
+    upsellQuando: MS.upsellQuando.getValues(),
     categoriaExp: MS.categoriaExp.getValues(),
-    hsEncontrar: document.getElementById('f-hs-encontrar').value,
-    hsCadastrar: document.getElementById('f-hs-cadastrar').value,
-    hsDisputar: document.getElementById('f-hs-disputar').value,
-    hsMonitorar: document.getElementById('f-hs-monitorar').value,
+    hsEncontrar: MS.hsEncontrar.getValues(),
+    hsCadastrar: MS.hsCadastrar.getValues(),
+    hsDisputar: MS.hsDisputar.getValues(),
+    hsMonitorar: MS.hsMonitorar.getValues(),
     nps: document.getElementById('f-nps').value,
     mesReajuste: MS.mesReajuste.getValues(),
   };
 }
 
-function matchesHS(chs, bucket){
-  if(!bucket) return true;
-  if(bucket==='critico') return chs<40;
-  if(bucket==='atencao') return chs>=40 && chs<60;
-  if(bucket==='bom') return chs>=60 && chs<80;
-  if(bucket==='excelente') return chs>=80;
+const HS_BUCKET_OPTIONS = ['Crítico (< 40)','Atenção (40–59)','Bom (60–79)','Excelente (≥ 80)'];
+
+function matchesHS(chs, bucketLabel){
+  if(!bucketLabel) return true;
+  const n = normalizeAccents(bucketLabel);
+  if(n.indexOf('critico')!==-1) return chs<40;
+  if(n.indexOf('atencao')!==-1) return chs>=40 && chs<60;
+  if(n.indexOf('bom')!==-1) return chs>=60 && chs<80;
+  if(n.indexOf('excelente')!==-1) return chs>=80;
   return true;
+}
+
+function matchesHSMulti(chs, buckets){
+  if(!buckets.length) return true;
+  return buckets.some(b=>matchesHS(chs,b));
+}
+
+function isRecencyValue(v){
+  const n = normalizeAccents(v);
+  if(!n) return false;
+  if(n.indexOf('este mes')!==-1 || n.indexOf('esse mes')!==-1) return true;
+  if(/\d/.test(n) && n.indexOf('mes')!==-1) return true;
+  return false;
+}
+
+function eventLabel(raw, semLabel){
+  return isRecencyValue(raw) ? String(raw).trim() : semLabel;
+}
+
+function recencySortKey(label){
+  const n = normalizeAccents(label);
+  if(n.indexOf('este mes')!==-1 || n.indexOf('esse mes')!==-1) return 0;
+  const m = n.match(/(\d+)/);
+  return m ? Number(m[1]) : 999;
 }
 
 function matchesNPS(nps, bucket){
@@ -611,7 +674,10 @@ function matchesNPS(nps, bucket){
 
 function isInadimplenteOuBaixoUso(c){
   const inadimplente = normalizeAccents(c.statusMensalidade).indexOf('inadimplent') !== -1;
-  const baixoUso = c.mau===0 || c.totalLicitacoes<=5 || c.chs<30;
+  const temDadoLicitacao = c.totalLicitacoes !== null;
+  const baixoUso = temDadoLicitacao
+    ? (c.mau===0 || c.totalLicitacoes<=5 || c.chs<30)
+    : (c.mau===0 && c.chs<=60);
   return inadimplente || baixoUso;
 }
 
@@ -733,6 +799,13 @@ const MS = {
   categoriaExp: createMultiSelect('categoriaExp', 'Todos'),
   mesReajuste: createMultiSelect('mesReajuste', 'Todos'),
   qtdOfertar: createMultiSelect('qtdOfertar', 'Todas'),
+  hs: createMultiSelect('hs', 'Todos'),
+  hsEncontrar: createMultiSelect('hsEncontrar', 'Todos'),
+  hsCadastrar: createMultiSelect('hsCadastrar', 'Todos'),
+  hsDisputar: createMultiSelect('hsDisputar', 'Todos'),
+  hsMonitorar: createMultiSelect('hsMonitorar', 'Todos'),
+  churnQuando: createMultiSelect('churnQuando', 'Todos'),
+  upsellQuando: createMultiSelect('upsellQuando', 'Todos'),
 };
 
 document.getElementById('quick-filter-clear').addEventListener('click', clearQuickFilter);
@@ -743,19 +816,20 @@ function getFilteredClients(){
     if(f.plano.length && !f.plano.includes(c.plano)) return false;
     if(f.engajador.length && !f.engajador.includes(c.engajador)) return false;
     if(f.codigo && String(c.codigo).indexOf(f.codigo)===-1) return false;
-    if(!matchesHS(c.chs, f.hs)) return false;
+    if(!matchesHSMulti(c.chs, f.hs)) return false;
     if(f.statusMens && c.statusMensalidade!==f.statusMens) return false;
     if(f.oportunidade==='ofertar' && c.qtdOfertar<=0) return false;
     if(f.oportunidade==='migracao' && c.migracaoPlano!=='SIM') return false;
     if(f.qtdOfertar.length && !f.qtdOfertar.includes(String(c.qtdOfertar))) return false;
     if(f.saving && (f.saving==='sim' ? c.emSaving!=='SIM' : c.emSaving==='SIM')) return false;
-    if(f.churn && (f.churn==='sim' ? c.churn12m!=='SIM' : c.churn12m==='SIM')) return false;
-    if(f.upsell && (f.upsell==='sim' ? c.upsell12m!=='SIM' : c.upsell12m==='SIM')) return false;
+    if(f.migracao && (f.migracao==='sim' ? c.migracaoPlano!=='SIM' : c.migracaoPlano==='SIM')) return false;
+    if(f.churnQuando.length && !f.churnQuando.includes(eventLabel(c.churn12m,'Sem churn'))) return false;
+    if(f.upsellQuando.length && !f.upsellQuando.includes(eventLabel(c.upsell12m,'Sem upsell'))) return false;
     if(f.categoriaExp.length && !f.categoriaExp.includes(c.categoriaExpansao)) return false;
-    if(!matchesHS(c.hsEncontrar, f.hsEncontrar)) return false;
-    if(!matchesHS(c.hsCadastrar, f.hsCadastrar)) return false;
-    if(!matchesHS(c.hsDisputar, f.hsDisputar)) return false;
-    if(!matchesHS(c.hsMonitorar, f.hsMonitorar)) return false;
+    if(!matchesHSMulti(c.hsEncontrar, f.hsEncontrar)) return false;
+    if(!matchesHSMulti(c.hsCadastrar, f.hsCadastrar)) return false;
+    if(!matchesHSMulti(c.hsDisputar, f.hsDisputar)) return false;
+    if(!matchesHSMulti(c.hsMonitorar, f.hsMonitorar)) return false;
     if(!matchesNPS(c.nps, f.nps)) return false;
     if(f.mesReajuste.length && !f.mesReajuste.includes(c.mesReajuste)) return false;
     if(quickFilter && !quickFilter.test(c)) return false;
@@ -769,9 +843,9 @@ function renderKPIs(list){
   const ltv = list.reduce((s,c)=>s+c.ltv,0);
   const saving = list.filter(c=>c.emSaving==='SIM').length;
   const migracao = list.filter(c=>c.migracaoPlano==='SIM').length;
-  const churnClientes = list.filter(c=>c.churn12m==='SIM');
+  const churnClientes = list.filter(c=>isRecencyValue(c.churn12m));
   const rsChurn = churnClientes.reduce((s,c)=>s+c.rsChurn,0);
-  const upsellClientes = list.filter(c=>c.upsell12m==='SIM');
+  const upsellClientes = list.filter(c=>isRecencyValue(c.upsell12m));
   const rsUpsell = upsellClientes.reduce((s,c)=>s+c.rsUpsell,0);
   const playbooks = list.filter(c=>c.playbookAtivo==='SIM').length;
   const saldo = rsUpsell - rsChurn;
@@ -819,10 +893,10 @@ function detailRowHTML(c){
         '<span class="text-body-sm">Já esteve outras vezes: '+badge(c.jaEsteveSaving,'neutral')+' ('+c.qtdVezesSaving+'x)</span>'+
       '</div>'+
       '<div class="detail-col"><span class="text-label-sm tone-tertiary">Churn</span>'+
-        '<span class="text-body-sm">'+badge(c.churn12m,c.churn12m==='SIM'?'error':'neutral')+' · '+fmtBRL(c.rsChurn)+'</span>'+
+        '<span class="text-body-sm">'+badge(eventLabel(c.churn12m,'Sem churn'),isRecencyValue(c.churn12m)?'error':'neutral')+' · '+fmtBRL(c.rsChurn)+'</span>'+
       '</div>'+
       '<div class="detail-col"><span class="text-label-sm tone-tertiary">Upsell / expansão</span>'+
-        '<span class="text-body-sm">Upsell 12m: '+badge(c.upsell12m,c.upsell12m==='SIM'?'success':'neutral')+' · '+fmtBRL(c.rsUpsell)+'</span>'+
+        '<span class="text-body-sm">Upsell 12m: '+badge(eventLabel(c.upsell12m,'Sem upsell'),isRecencyValue(c.upsell12m)?'success':'neutral')+' · '+fmtBRL(c.rsUpsell)+'</span>'+
         '<span class="text-body-sm">Playbook ativo: '+badge(c.playbookAtivo,c.playbookAtivo==='SIM'?'warning':'neutral')+'</span>'+
         (c.tevePlaybookExpansao==='SIM' ? '<span class="text-body-sm">Motivo: '+c.categoriaExpansao+' ('+c.dataUltimoPlaybook+')</span>' : '<span class="text-body-sm tone-tertiary">Sem expansão registrada</span>')+
       '</div>'+
@@ -844,8 +918,8 @@ function renderTable(list){
       '<td>'+badge(c.chs+' · '+hs.label, hs.tone)+'</td>'+
       '<td>'+oportunidadeBadges(c)+'</td>'+
       '<td>'+badge(c.emSaving, c.emSaving==='SIM'?'warning':'neutral')+'</td>'+
-      '<td>'+badge(c.churn12m, c.churn12m==='SIM'?'error':'neutral')+'</td>'+
-      '<td>'+badge(c.upsell12m, c.upsell12m==='SIM'?'success':'neutral')+'</td>'+
+      '<td>'+badge(eventLabel(c.churn12m,'Sem churn'), isRecencyValue(c.churn12m)?'error':'neutral')+'</td>'+
+      '<td>'+badge(eventLabel(c.upsell12m,'Sem upsell'), isRecencyValue(c.upsell12m)?'success':'neutral')+'</td>'+
     '</tr>';
   }).join('');
 
@@ -896,7 +970,6 @@ function renderCharts(list){
   const adicionaisKeys = Object.keys(ADICIONAIS_LABELS);
   const jaTem = adicionaisKeys.map(k=>list.filter(c=>c.adicionais[k]==='Já tem').length);
   const ofertar = adicionaisKeys.map(k=>list.filter(c=>c.adicionais[k]==='Ofertar').length);
-  const migracao = adicionaisKeys.map(k=>list.filter(c=>c.adicionais[k]==='Migração').length);
 
   if(chartPlano) chartPlano.destroy();
   if(chartAdicionais) chartAdicionais.destroy();
@@ -963,7 +1036,7 @@ function renderCharts(list){
     }
   });
 
-  const statusOrder = ['Já tem','Ofertar','Migração'];
+  const statusOrder = ['Já tem','Ofertar'];
   chartAdicionais = new Chart(document.getElementById('chart-adicionais'), {
     type:'bar',
     data:{
@@ -971,7 +1044,6 @@ function renderCharts(list){
       datasets:[
         {label:'Já contratado', data:jaTem, backgroundColor:cols.badge},
         {label:'A ofertar', data:ofertar, backgroundColor:cols.success},
-        {label:'Migração', data:migracao, backgroundColor:cols.premium},
       ]
     },
     options:{
@@ -1124,7 +1196,7 @@ document.getElementById('table-search').addEventListener('input', ()=>{
   renderTable(getSearchedClients(getFilteredClients()));
 });
 
-const ALL_FILTER_IDS = ['f-codigo','f-hs','f-status-mens','f-oportunidade','f-saving','f-churn','f-upsell','f-hs-encontrar','f-hs-cadastrar','f-hs-disputar','f-hs-monitorar','f-nps'];
+const ALL_FILTER_IDS = ['f-codigo','f-status-mens','f-oportunidade','f-saving','f-migracao','f-nps'];
 const MESES_ORDEM = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
 
 function initFilters(){
@@ -1134,6 +1206,15 @@ function initFilters(){
   MS.categoriaExp.setOptions(uniqueSorted(CLIENTES.filter(c=>c.categoriaExpansao).map(c=>c.categoriaExpansao)));
   MS.mesReajuste.setOptions(MESES_ORDEM.filter(m=>CLIENTES.some(c=>c.mesReajuste===m)));
   MS.qtdOfertar.setOptions(['0','1','2','3','4','5','6']);
+  MS.hs.setOptions(HS_BUCKET_OPTIONS);
+  MS.hsEncontrar.setOptions(HS_BUCKET_OPTIONS);
+  MS.hsCadastrar.setOptions(HS_BUCKET_OPTIONS);
+  MS.hsDisputar.setOptions(HS_BUCKET_OPTIONS);
+  MS.hsMonitorar.setOptions(HS_BUCKET_OPTIONS);
+  const churnValues = uniqueSorted(CLIENTES.map(c=>eventLabel(c.churn12m,'Sem churn'))).sort((a,b)=>recencySortKey(a)-recencySortKey(b));
+  const upsellValues = uniqueSorted(CLIENTES.map(c=>eventLabel(c.upsell12m,'Sem upsell'))).sort((a,b)=>recencySortKey(a)-recencySortKey(b));
+  MS.churnQuando.setOptions(churnValues);
+  MS.upsellQuando.setOptions(upsellValues);
   ALL_FILTER_IDS.forEach(id=>{
     document.getElementById(id).addEventListener('input', applyFilters);
     document.getElementById(id).addEventListener('change', applyFilters);
@@ -1147,6 +1228,13 @@ function initFilters(){
     MS.categoriaExp.clear();
     MS.mesReajuste.clear();
     MS.qtdOfertar.clear();
+    MS.hs.clear();
+    MS.hsEncontrar.clear();
+    MS.hsCadastrar.clear();
+    MS.hsDisputar.clear();
+    MS.hsMonitorar.clear();
+    MS.churnQuando.clear();
+    MS.upsellQuando.clear();
     quickFilter = null;
     document.getElementById('quick-filter-chip').hidden = true;
     applyFilters();
